@@ -128,3 +128,53 @@ else
 {
     $logo = '<span class="site-title" title="' . $sitename . '">' . $sitename . '</span>';
 }
+
+
+/**
+ * Add current browser information
+ * IE:
+ * 11 => Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko
+ * 10 => Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)
+ * 9  => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+ * 8  => Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0)
+ */
+
+$nav = JBrowser::getInstance();
+$agent = $nav->getAgentString();
+$browserType = $nav->getBrowser();
+$browserVersion = $nav->getMajor();
+$browser = '';
+if ($nav->isMobile() || strpos($agent, 'Mobile'))
+{
+    $browser = ' Mob';
+}
+
+if ($browserType == 'firefox')
+{
+    $browser .= ' Moz';
+}
+elseif ($browserType == 'safari')
+{
+    $browser .= ' Webkit';
+}
+elseif ($browserType == 'msie')
+{
+    $browser .= ' IE';
+    if ($browserVersion < 10)
+    {
+        $browser .= ' IE-old';
+    }
+    elseif ($browserVersion == 10)
+    {
+        $browser .= ' IE10';
+    }
+    else
+    {
+        $browser .= ' IE11';
+    }
+}
+elseif ($browserType == 'edge' && $browserVersion < 16)
+{
+    $browser .= ' Edge';
+}
+
