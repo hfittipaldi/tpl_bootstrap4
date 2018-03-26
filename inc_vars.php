@@ -61,6 +61,12 @@ JHtmlBootstrap::loadCss(true, $this->direction);
 $doc->addStyleSheet('media/jui/css/icomoon.css');
 $doc->addStyleSheetVersion('templates/' . $this->template . '/css/template.css');
 
+// Check for a custom CSS file
+JHtml::_('stylesheet', 'custom.css', array('version' => 'auto', 'relative' => true));
+
+// Check for a custom js file
+JHtml::_('script', 'custom.js', array('version' => 'auto', 'relative' => true));
+
 // Unset Stylesheets
 // Avoid conflict with joomla's bootstrap default
 unset($doc->_styleSheets[$this->baseurl . '/media/jui/css/bootstrap-responsive.min.css']);
