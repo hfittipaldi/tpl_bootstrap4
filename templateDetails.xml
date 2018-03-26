@@ -2,7 +2,7 @@
 <!DOCTYPE install PUBLIC "-//Joomla! 3.0//DTD template 1.0//EN" "https://www.joomla.org/xml/dtd/2.5/template-install.dtd">
 <extension version="3.0" type="template" client="site" method="upgrade">
     <name>Bootstrap 4</name>
-    <version>0.0.6</version>
+    <version>0.0.6.1</version>
     <creationDate>2018-03-26</creationDate>
     <author>Hugo Fittipaldi</author>
     <authorEmail>hugo.fittipaldi@gmail.com</authorEmail>
@@ -58,6 +58,60 @@
                        label="JGLOBAL_DESCRIPTION"
                        description="JGLOBAL_SUBHEADING_DESC"
                        filter="string"
+                />
+            </fieldset>
+
+            <!-- GOOGLE FONTS-->
+            <fieldset name="Font" label="Fonts">
+                <field name="googleFont" type="radio"
+                       class="btn-group btn-group-yesno"
+                       default="0"
+                       label="Google Font for Headings"
+                       description="Google Font for H1, H2, H3, etc" >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="googleFontName"
+                       class=""
+                       type="text"
+                       default="Roboto+Slab"
+                       label="Font Name"
+                       description="Font Name"
+                       showon="googleFont:1"
+                />
+
+                <field name="bodyFont"
+                       class="btn-group btn-group-yesno"
+                       type="radio"
+                       default="0"
+                       label="Google Font for Body"
+                       description="Google Font for Body" >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="bodyFontName"
+                       type="text"
+                       default="Open+Sans"
+                       label="Font Name"
+                       description="Font Name"
+                       showon="bodyFont:1"
+                />
+
+                <field name="navigationFont"
+                       class="btn-group btn-group-yesno"
+                       type="radio"
+                       default="0"
+                       label="Google Font for Menu"
+                       description="Google Font for Menu" >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="navigationFontname"
+                       type="text"
+                       default="Open+Sans"
+                       label="Font Name"
+                       description="Font Name"
+                       showon="navigationFont:1"
                 />
             </fieldset>
         </fields>
