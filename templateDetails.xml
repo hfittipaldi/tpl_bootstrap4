@@ -2,7 +2,7 @@
 <!DOCTYPE install PUBLIC "-//Joomla! 3.0//DTD template 1.0//EN" "https://www.joomla.org/xml/dtd/2.5/template-install.dtd">
 <extension version="3.0" type="template" client="site" method="upgrade">
     <name>Bootstrap 4</name>
-    <version>0.0.6.2</version>
+    <version>0.0.6.3</version>
     <creationDate>2018-03-26</creationDate>
     <author>Hugo Fittipaldi</author>
     <authorEmail>hugo.fittipaldi@gmail.com</authorEmail>
@@ -58,6 +58,22 @@
                        label="JGLOBAL_DESCRIPTION"
                        description="JGLOBAL_SUBHEADING_DESC"
                        filter="string"
+                />
+            </fieldset>
+
+            <fieldset name="advanced">
+                <field name="body_bg"
+                       type="color"
+                       default="#ffffff"
+                       label="Background Color"
+                       description="Choose a background color for static layouts. If left blank the Default (#ffffff) is used."
+                />
+
+                <field name="body_color"
+                       type="color"
+                       default="#212529"
+                       label="Font Color"
+                       description="Choose a font color for the site template. If left blank the Default (#212529) is used."
                 />
             </fieldset>
 
