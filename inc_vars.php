@@ -11,8 +11,10 @@ defined('_JEXEC') or die;
 
 $doc = JFactory::getDocument();
 
+// Add Stylesheets
 JHtmlBootstrap::loadCss(true, $this->direction);
-$doc->addStyleSheet($this->baseurl . '/media/jui/css/icomoon.css');
+$doc->addStyleSheet('media/jui/css/icomoon.css');
+$doc->addStyleSheetVersion('templates/' . $this->template . '/css/template.css');
 
 // Unset Stylesheets
 // Avoid conflict with joomla's bootstrap default

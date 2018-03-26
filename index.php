@@ -19,8 +19,6 @@ require_once 'inc_vars.php';
     <meta name="HandheldFriendly" content="True" />
     <meta name="MobileOptimized" content="320" />
     <jdoc:include type="head" />
-
-    <link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/css/template.css" type="text/css" />
 </head>
 
 <body>
