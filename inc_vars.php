@@ -115,6 +115,24 @@ if ($params->get('navigationFont'))
 $container  = 'container';
 $container .= !$params->get('layout') ? '' : '-fluid';
 
+// Adjusting layout
+if ($this->countModules('left') && $this->countModules('right'))
+{
+    $wrapper = 'wrapper--lft-rgt ';
+}
+elseif ($this->countModules('left'))
+{
+    $wrapper = 'wrapper--lft ';
+}
+elseif ($this->countModules('right'))
+{
+    $wrapper = 'wrapper--rgt ';
+}
+else
+{
+    $wrapper = '';
+}
+
 // Logo file or site title param
 if ($params->get('logoFile'))
 {
