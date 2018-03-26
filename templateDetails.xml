@@ -2,7 +2,7 @@
 <!DOCTYPE install PUBLIC "-//Joomla! 3.0//DTD template 1.0//EN" "https://www.joomla.org/xml/dtd/2.5/template-install.dtd">
 <extension version="3.0" type="template" client="site" method="upgrade">
     <name>Bootstrap 4</name>
-    <version>0.0.5.3</version>
+    <version>0.0.6</version>
     <creationDate>2018-03-26</creationDate>
     <author>Hugo Fittipaldi</author>
     <authorEmail>hugo.fittipaldi@gmail.com</authorEmail>
@@ -33,4 +33,33 @@
         <position>top</position>
         <position>debug</position>
     </positions>
+
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="logoFile"
+                       type="media"
+                       default=""
+                       label="Logo"
+                       description="Select or upload a custom logo for the site template."
+                />
+
+                <field name="siteTitle"
+                       type="text"
+                       default=""
+                       label="JGLOBAL_TITLE"
+                       description="JFIELD_ALT_PAGE_TITLE_LABEL"
+                       filter="string"
+                />
+
+                <field name="siteDescription"
+                       type="text"
+                       default=""
+                       label="JGLOBAL_DESCRIPTION"
+                       description="JGLOBAL_SUBHEADING_DESC"
+                       filter="string"
+                />
+            </fieldset>
+        </fields>
+    </config>
 </extension>
