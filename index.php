@@ -21,7 +21,14 @@ require_once 'inc_vars.php';
     <jdoc:include type="head" />
 </head>
 
-<body>
+<body class="site <?php echo $option
+    . ' view-' . $view
+    . ($layout ? ' layout-' . $layout : ' no-layout')
+    . ($task ? ' task-' . $task : ' no-task')
+    . ($itemid ? ' itemid-' . $itemid : '')
+    . ($browser ?: '')
+    . ($pageclass ? ' ' . $pageclass : '');
+?>">
     <header class="page-header">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
             <a class="navbar-brand" href="<?php echo $this->baseurl; ?>">
