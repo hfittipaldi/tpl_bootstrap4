@@ -149,6 +149,11 @@ else
     $logo = '<span class="site-title" title="' . $sitename . '">' . $sitename . '</span>';
 }
 
+if ($tpl_params->get('siteDescription'))
+{
+    $logo .= '<div class="site-description">' . htmlspecialchars($tpl_params->get('siteDescription'), ENT_COMPAT, 'UTF-8') . '</div>';
+}
+
 
 /**
  * Add current browser information
