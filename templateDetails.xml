@@ -2,7 +2,7 @@
 <!DOCTYPE install PUBLIC "-//Joomla! 3.0//DTD template 1.0//EN" "https://www.joomla.org/xml/dtd/2.5/template-install.dtd">
 <extension version="3.0" type="template" client="site" method="upgrade">
     <name>Bootstrap 4</name>
-    <version>0.0.6.1</version>
+    <version>0.0.6.2</version>
     <creationDate>2018-03-26</creationDate>
     <author>Hugo Fittipaldi</author>
     <authorEmail>hugo.fittipaldi@gmail.com</authorEmail>
@@ -113,6 +113,19 @@
                        description="Font Name"
                        showon="navigationFont:1"
                 />
+            </fieldset>
+
+            <!-- LAYOUT -->
+            <fieldset name="Layout" label="Layout Options">
+                <field name="layout"
+                       type="radio"
+                       class="btn-group"
+                       default="0"
+                       label="Layout"
+                       description="Select Full Layout or Boxed Layout" >
+                    <option value="1">Full Layout</option>
+                    <option value="0">Boxed Layout</option>
+                </field>
             </fieldset>
         </fields>
     </config>
