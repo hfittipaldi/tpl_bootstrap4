@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install PUBLIC "-//Joomla! 3.0//DTD template 1.0//EN" "https://www.joomla.org/xml/dtd/2.5/template-install.dtd">
+<extension version="3.0" type="template" client="site" method="upgrade">
+    <name>Bootstrap 4</name>
+    <version>0.0.1</version>
+    <creationDate>2018-03-26</creationDate>
+    <author>Hugo Fittipaldi</author>
+    <authorEmail>hugo.fittipaldi@gmail.com</authorEmail>
+    <copyright>Hugo Fittipaldi (C) 2018. All rights reserved.</copyright>
+    <license>GNU General Public License version 3 or later.</license>
+    <description>Bootstrap 4 – Basic Joomla Template.</description>
+
+    <files>
+        <filename>index.php</filename>
+        <filename>templateDetails.xml</filename>
+        <folder>css</folder>
+        <folder>images</folder>
+    </files>
+
+    <positions>
+        <position>breadcrumbs</position>
+        <position>content-top</position>
+        <position>content-bottom</position>
+        <position>copyright</position>
+        <position>footer</position>
+        <position>left</position>
+        <position>mainnav</position>
+        <position>right</position>
+        <position>search</position>
+        <position>showcase</position>
+        <position>top</position>
+        <position>debug</position>
+    </positions>
+</extension>
