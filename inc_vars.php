@@ -73,47 +73,49 @@ unset($doc->_styleSheets[$this->baseurl . '/media/jui/css/bootstrap-responsive.m
 
 
 // Template colors
-if ($params->get('body_bg') || $params->get('body_color'))
-{ ?>
-    body {
-        <?php echo $params->get('body_color') ? 'color: ' . $params->get('body_color') . ';' . PHP_EOL; ?>
-        <?php echo $params->get('body_bg') ? 'background-color: ' . $params->get('body_color') . ';' . PHP_EOL; ?>
-    }
-<?php }
+if ($tpl_params->get('body_bg') !== '#ffffff' || $tpl_params->get('body_color') !== '#212529')
+{
+    $doc->addStyleDeclaration("
+        body {
+            " . ($tpl_params->get('body_color') !== '#212529' ? 'color: ' . $tpl_params->get('body_color') . ';' . PHP_EOL . "\t\t\t" : '') .
+                ($tpl_params->get('body_bg') !== '#ffffff' ? 'background-color: ' . $tpl_params->get('body_bg') . ';' : '') . "
+        }
+    ");
+}
 
 // Body Font
-if ($params->get('bodyFont'))
+if ($tpl_params->get('bodyFont'))
 {
-        JHtml::_('stylesheet', '//fonts.googleapis.com/css?family=' . $params->get('bodyFontName'));
-        $this->addStyleDeclaration("
+    JHtml::_('stylesheet', '//fonts.googleapis.com/css?family=' . $tpl_params->get('bodyFontName'));
+    $doc->addStyleDeclaration("
     body {
-        font-family: '" . str_replace('+', ' ', $params->get('bodyFontName')) . "';
+        font-family: '" . str_replace('+', ' ', $tpl_params->get('bodyFontName')) . "';
     }");
 }
 // Use of Google Font on titles
-if ($params->get('googleFont'))
+if ($tpl_params->get('googleFont'))
 {
-    JHtml::_('stylesheet', '//fonts.googleapis.com/css?family=' . $params->get('googleFontName'));
-    $this->addStyleDeclaration("
+    JHtml::_('stylesheet', '//fonts.googleapis.com/css?family=' . $tpl_params->get('googleFontName'));
+    $doc->addStyleDeclaration("
     h1, h2, h3, h4, h5, h6,
     .h1, .h2, .h3, .h4, .h5, .h6,
     .site-title {
-        font-family: '" . str_replace('+', ' ', $params->get('googleFontName')) . "';
+        font-family: '" . str_replace('+', ' ', $tpl_params->get('googleFontName')) . "';
     }");
 }
 // Navigation Font
-if ($params->get('navigationFont'))
+if ($tpl_params->get('navigationFont'))
 {
-        JHtml::_('stylesheet', '//fonts.googleapis.com/css?family=' . $params->get('navigationFontname'));
-        $this->addStyleDeclaration("
+    JHtml::_('stylesheet', '//fonts.googleapis.com/css?family=' . $tpl_params->get('navigationFontname'));
+    $doc->addStyleDeclaration("
     nav {
-        font-family: '" . str_replace('+', ' ', $params->get('navigationFontname')) . "';
+        font-family: '" . str_replace('+', ' ', $tpl_params->get('navigationFontname')) . "';
     }");
 }
 
 // Get template layout
 $container  = 'container';
-$container .= !$params->get('layout') ? '' : '-fluid';
+$container .= !$tpl_params->get('layout') ? '' : '-fluid';
 
 // Adjusting layout
 if ($this->countModules('left') && $this->countModules('right'))
@@ -134,13 +136,13 @@ else
 }
 
 // Logo file or site title param
-if ($params->get('logoFile'))
+if ($tpl_params->get('logoFile'))
 {
-    $logo = '<img src="' . JUri::root() . $params->get('logoFile') . '" alt="' . $sitename . '" />';
+    $logo = '<img src="' . JUri::root() . $tpl_params->get('logoFile') . '" alt="' . $sitename . '" />';
 }
-elseif ($params->get('siteTitle'))
+elseif ($tpl_params->get('siteTitle'))
 {
-    $logo = '<span class="site-title" title="' . $sitename . '">' . htmlspecialchars($params->get('siteTitle'), ENT_COMPAT, 'UTF-8') . '</span>';
+    $logo = '<span class="site-title" title="' . $sitename . '">' . htmlspecialchars($tpl_params->get('siteTitle'), ENT_COMPAT, 'UTF-8') . '</span>';
 }
 else
 {
