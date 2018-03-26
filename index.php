@@ -8,6 +8,8 @@
  */
 
 defined('_JEXEC') or die;
+
+JHtmlBootstrap::loadCss(true, $this->direction);
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $this->language; ?>" >
