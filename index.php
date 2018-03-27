@@ -18,6 +18,9 @@ require_once 'inc_vars.php';
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="HandheldFriendly" content="True" />
     <meta name="MobileOptimized" content="320" />
+    <link rel="icon" type="image/png" href="<?php echo $this->template_path; ?>/favicon.png" />
+    <link rel="apple-touch-icon" href="<?php echo $this->template_path; ?>/images/apple-touch-icon.png" />
+
     <jdoc:include type="head" />
 </head>
 
