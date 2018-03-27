@@ -7,8 +7,8 @@
 - [ ] Add Navbar design to template
 - [ ] Template Sass compilation
 - [ ] Add custom module design
-- [ ] Overwrite pagination file
-- [ ] Overwrite message file
+- [x] Overwrite pagination
+- [ ] Overwrite message
 - [ ] Styling frontpage
 - [ ] Styling menu
 - [ ] Components page
