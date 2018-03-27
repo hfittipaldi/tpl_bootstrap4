@@ -8,7 +8,7 @@
 - [ ] Template Sass compilation
 - [ ] Add custom module design
 - [x] Overwrite pagination
-- [ ] Overwrite message
+- [x] Overwrite message
 - [ ] Styling frontpage
 - [ ] Styling menu
 - [ ] Components page
