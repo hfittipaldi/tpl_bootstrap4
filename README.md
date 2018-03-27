@@ -6,7 +6,7 @@
 ----------
 - [ ] Add Navbar design to template
 - [ ] Template Sass compilation
-- [ ] Add custom module design
+- [ ] Add custom module style
 - [x] Overwrite pagination
 - [x] Overwrite message
 - [ ] Styling frontpage
