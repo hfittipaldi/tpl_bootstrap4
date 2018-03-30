@@ -2,7 +2,7 @@
 <!DOCTYPE install PUBLIC "-//Joomla! 3.0//DTD template 1.0//EN" "https://www.joomla.org/xml/dtd/2.5/template-install.dtd">
 <extension version="3.0" type="template" client="site" method="upgrade">
     <name>Bootstrap 4</name>
-    <version>0.0.9.2</version>
+    <version>0.0.10</version>
     <creationDate>2018-03-26</creationDate>
     <author>Hugo Fittipaldi</author>
     <authorEmail>hugo.fittipaldi@gmail.com</authorEmail>
@@ -18,7 +18,10 @@
         <folder>css</folder>
         <folder>html</folder>
         <folder>images</folder>
+        <folder>includes</folder>
         <folder>js</folder>
+        <folder>scss</folder>
+        <folder>vendor</folder>
     </files>
 
     <positions>
@@ -61,9 +64,27 @@
                        description="JGLOBAL_SUBHEADING_DESC"
                        filter="string"
                 />
+
+                <!-- SASS-->
+                <field name="compile_sass"
+                       type="radio"
+                       class="btn-group"
+                       default="0"
+                       label="Compile Sass"
+                       description="Do you want to enable Sass compilation" >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
             </fieldset>
 
             <fieldset name="advanced">
+                <field name="primary"
+                       type="color"
+                       default="#007bff"
+                       label="Template color"
+                       description="Choose a template color. If left blank the Default (#007bff) is used."
+                />
+
                 <field name="body_bg"
                        type="color"
                        default="#ffffff"
@@ -77,6 +98,26 @@
                        label="Font Color"
                        description="Choose a font color for the site template. If left blank the Default (#212529) is used."
                 />
+
+                <field name="enable_shadows"
+                       type="radio"
+                       class="btn-group"
+                       default="0"
+                       label="Enable shadows"
+                       description="Do you want to enable shadows" >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+
+                <field name="enable_gradients"
+                       type="radio"
+                       class="btn-group"
+                       default="0"
+                       label="Enable gradients"
+                       description="Do you want to enable gradients" >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
             </fieldset>
 
             <!-- GOOGLE FONTS-->

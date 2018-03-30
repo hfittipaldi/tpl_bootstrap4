@@ -5,7 +5,7 @@
 #### TODO list
 ----------
 - [ ] Add Navbar design to template
-- [ ] Template Sass compilation
+- [x] Template Sass compilation
 - [x] Add custom module style
 - [x] Overwrite pagination
 - [x] Overwrite message

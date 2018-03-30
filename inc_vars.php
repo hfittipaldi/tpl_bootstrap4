@@ -72,17 +72,6 @@ JHtml::_('script', 'custom.js', array('version' => 'auto', 'relative' => true));
 unset($doc->_styleSheets[$this->baseurl . '/media/jui/css/bootstrap-responsive.min.css']);
 
 
-// Template colors
-if ($tpl_params->get('body_bg') !== '#ffffff' || $tpl_params->get('body_color') !== '#212529')
-{
-    $doc->addStyleDeclaration("
-        body {
-            " . ($tpl_params->get('body_color') !== '#212529' ? 'color: ' . $tpl_params->get('body_color') . ';' . PHP_EOL . "\t\t\t" : '') .
-                ($tpl_params->get('body_bg') !== '#ffffff' ? 'background-color: ' . $tpl_params->get('body_bg') . ';' : '') . "
-        }
-    ");
-}
-
 // Body Font
 if ($tpl_params->get('bodyFont'))
 {
@@ -203,3 +192,8 @@ elseif ($browserType == 'edge' && $browserVersion < 16)
     $browser .= ' Edge';
 }
 
+// Compile sass if activated
+if ($tpl_params->get('compile_sass', 0) == 1)
+{
+    require_once 'includes/sass.php';
+}
