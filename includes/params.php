@@ -195,5 +195,5 @@ elseif ($browserType == 'edge' && $browserVersion < 16)
 // Compile sass if activated
 if ($tpl_params->get('compile_sass', 0) == 1)
 {
-    require_once 'includes/sass.php';
+    require_once 'sass.php';
 }

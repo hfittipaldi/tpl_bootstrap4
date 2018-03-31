@@ -9,7 +9,7 @@
 
 defined('_JEXEC') or die;
 
-require_once 'inc_vars.php';
+require_once 'includes/params.php';
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $this->language; ?>" >

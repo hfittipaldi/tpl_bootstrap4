@@ -2,7 +2,7 @@
 <!DOCTYPE install PUBLIC "-//Joomla! 3.0//DTD template 1.0//EN" "https://www.joomla.org/xml/dtd/2.5/template-install.dtd">
 <extension version="3.0" type="template" client="site" method="upgrade">
     <name>Bootstrap 4</name>
-    <version>0.0.10</version>
+    <version>0.0.11</version>
     <creationDate>2018-03-26</creationDate>
     <author>Hugo Fittipaldi</author>
     <authorEmail>hugo.fittipaldi@gmail.com</authorEmail>
@@ -12,7 +12,6 @@
 
     <files>
         <filename>favicon.png</filename>
-        <filename>inc_vars.php</filename>
         <filename>index.php</filename>
         <filename>templateDetails.xml</filename>
         <folder>css</folder>
