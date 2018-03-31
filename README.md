@@ -8,7 +8,7 @@
 - [x] Template Sass compilation
   - [x] Fix bootstrap alert compilation
   - [x] Remove bootstrap extended
-  - [ ] Add bootstrap adapter
+  - [x] Add bootstrap adapter
 - [x] Add custom module style
 - [x] Overwrite pagination
 - [x] Overwrite message

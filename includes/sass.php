@@ -31,6 +31,7 @@ $scss = new FileCompiler($cacheFolder);
 try
 {
     $scss->compileFile($scssFolder . '/bootstrap.scss', $cssFolder . '/bootstrap.min.css', FileCompiler::FORMATTER_EXPANDED);
+    $scss->compileFile($scssFolder . '/bootstrap-adapter.scss', $cssFolder . '/bootstrap-adapter.css', FileCompiler::FORMATTER_EXPANDED);
 }
 catch (Exception $e)
 {
