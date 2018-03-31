@@ -1,0 +1,41 @@
+/* ==========================================================================
+   Grid System
+   ========================================================================== */
+
+@if $body-bg != $white {
+  .container,
+  .container-fluid {
+    background-color: $white;
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .row-fluid {
+    @include make-row();
+  }
+
+  @mixin span-list {
+    $col-list: null;
+    @for $i from 1 through $grid-columns {
+      .span#{$i} {
+        -ms-flex-preferred-size: percentage($i / $grid-columns);
+        flex-basis: percentage($i / $grid-columns);
+        max-width: percentage($i / $grid-columns);
+      }
+
+      $col-list: append($col-list, unquote(".span#{$i}"), comma);
+    }
+
+    #{$col-list} {
+      -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+      flex-grow: 0;
+      -ms-flex-negative: 0;
+      flex-shrink: 0;
+      padding-right: ($grid-gutter-width / 2);
+      padding-left: ($grid-gutter-width / 2);
+    }
+  }
+
+  @include span-list;
+}

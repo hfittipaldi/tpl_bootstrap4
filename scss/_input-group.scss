@@ -1,0 +1,69 @@
+/* ==========================================================================
+   Input group
+   ========================================================================== */
+
+.input-prepend,
+.input-append {
+  display: flex;
+}
+
+.input-prepend > .add-on,
+.input-append > .add-on {
+  display: flex;
+  align-items: center;
+  padding: $input-padding-y $input-padding-x;
+  margin-bottom: 0; // Allow use of <label> elements by overriding our default margin-bottom
+  font-size: $font-size-base; // Match inputs
+  font-weight: $font-weight-normal;
+  line-height: $input-line-height;
+  color: $input-group-addon-color;
+  text-align: center;
+  white-space: nowrap;
+  background-color: $input-group-addon-bg;
+  border: $input-border-width solid $input-group-addon-border-color;
+  @include border-radius($input-border-radius);
+
+  // Nuke default margins from checkboxes and radios to vertically center within.
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin-top: 0;
+  }
+}
+
+.input-append {
+  > input {
+    margin-right: -1px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+    + .add-on {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+}
+
+.input-prepend {
+  > .add-on {
+    margin-right: -1px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+    + input {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+}
+
+.input-append.input-prepend > input {
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    margin-bottom: 0;
+}
+
+.input-append.input-prepend .add-on:last-child {
+    margin-left: -1px;
+    border-radius: 0 $input-border-radius $input-border-radius 0;
+}

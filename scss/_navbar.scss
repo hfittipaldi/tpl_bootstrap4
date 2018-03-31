@@ -1,0 +1,19 @@
+/* ==========================================================================
+   Navbar
+   ========================================================================== */
+
+.nav-stacked {
+  -webkit-box-orient: vertical!important;
+  -webkit-box-direction: normal!important;
+  -ms-flex-direction: column!important;
+  flex-direction: column!important;
+
+  a {
+    display: block;
+    padding: .5rem 1rem;
+  }
+}
+
+.nav-tabs.nav-stacked {
+  border-bottom: 0;
+}

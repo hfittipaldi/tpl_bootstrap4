@@ -9,6 +9,12 @@
   - [x] Fix bootstrap alert compilation
   - [x] Remove bootstrap extended
   - [x] Add bootstrap adapter
+    - [x] forms
+    - [x] input-group
+    - [x] lists
+    - [x] grid
+    - [x] navs
+    - [x] navbar
 - [x] Add custom module style
 - [x] Overwrite pagination
 - [x] Overwrite message

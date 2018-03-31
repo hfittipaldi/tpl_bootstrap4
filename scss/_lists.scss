@@ -1,0 +1,21 @@
+/* ==========================================================================
+   Lists
+   ========================================================================== */
+
+@include media-breakpoint-up(sm) {
+  .dl-horizontal {
+    dt {
+      float: left;
+      width: ($font-size-base * 10);
+      overflow: hidden;
+      clear: left;
+      text-align: right;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    dd {
+      margin-left: (($font-size-base * 10) + ($grid-gutter-width / 16px));
+    }
+  }
+}
