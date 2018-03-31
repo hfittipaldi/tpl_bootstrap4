@@ -1,3 +1,11 @@
+// Override the maximum width of `.container` for different screen sizes.
+$container-max-widths: (
+  sm: 540px,
+  md: 750px,
+  lg: 970px,
+  xl: 1170px
+) !default;
+
 // Variable overrides
 @import "variables";
 
