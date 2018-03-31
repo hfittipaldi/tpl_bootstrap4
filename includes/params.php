@@ -69,6 +69,7 @@ JHtml::_('script', 'custom.js', array('version' => 'auto', 'relative' => true));
 
 // Unset Stylesheets
 // Avoid conflict with joomla's bootstrap default
+unset($doc->_styleSheets[$this->baseurl . '/media/jui/css/bootstrap-extended.css']);
 unset($doc->_styleSheets[$this->baseurl . '/media/jui/css/bootstrap-responsive.min.css']);
 
 

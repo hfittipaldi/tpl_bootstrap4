@@ -7,7 +7,7 @@
 - [ ] Add Navbar design to template
 - [x] Template Sass compilation
   - [x] Fix bootstrap alert compilation
-  - [ ] Remove bootstrap extended
+  - [x] Remove bootstrap extended
   - [ ] Add bootstrap adapter
 - [x] Add custom module style
 - [x] Overwrite pagination
