@@ -6,8 +6,7 @@
 ----------
 - [ ] Add Navbar design to template
 - [x] Template Sass compilation
-  - [ ] Remove jumbotron
-  - [ ] Fix bootstrap alert compilation
+  - [x] Fix bootstrap alert compilation
   - [ ] Remove bootstrap extended
   - [ ] Add bootstrap adapter
 - [x] Add custom module style
