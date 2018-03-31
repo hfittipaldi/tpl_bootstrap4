@@ -89,8 +89,28 @@ textarea {
   }
 }
 
+.input-mini {
+    width: 60px;
+}
+
+.input-small {
+    width: 90px;
+}
+
 .input-medium {
   margin-right: .5rem;
+}
+
+.input-large {
+    width: 210px;
+}
+
+.input-xlarge {
+    width: 270px;
+}
+
+.input-xxlarge {
+    width: 530px;
 }
 
 /* Forms inline
