@@ -7,7 +7,7 @@ $container-max-widths: (
 ) !default;
 
 // Variable overrides
-@import "variables";
+@import "partials/variables";
 
 @import "bootstrap/functions";
 @import "bootstrap/variables";
@@ -36,7 +36,7 @@ $container-max-widths: (
 
 // Fix alert darker colors
 // Same position as before
-@import "alert";
+@import "partials/alert";
 
 @import "bootstrap/progress";
 @import "bootstrap/media";

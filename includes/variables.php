@@ -9,7 +9,7 @@
 
 defined('_JEXEC') or die;
 
-$file  = $scssFolder . '/_variables.scss';
+$file  = $scssFolder . '/partials/_variables.scss';
 $cache = $cacheFolder . '/_variables.scss';
 
 $vars  = '$primary: '           . $tpl_params->get('primary', '#007bff') . ";\r\n";

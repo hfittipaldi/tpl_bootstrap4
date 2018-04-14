@@ -7,7 +7,7 @@
  */
 
 // Variable overrides
-@import "variables";
+@import "partials/variables";
 
 // Required
 @import "bootstrap/functions";
@@ -15,10 +15,10 @@
 @import "bootstrap/mixins";
 
 // Custom scss
-@import "layout";
-@import "forms";
-@import "input-group";
-@import "lists";
-@import "grid";
-@import "navs";
-@import "navbar";
+@import "partials/layout";
+@import "partials/forms";
+@import "partials/input-group";
+@import "partials/lists";
+@import "partials/grid";
+@import "partials/navs";
+@import "partials/navbar";
