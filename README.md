@@ -15,7 +15,7 @@
     - [x] grid
     - [x] navs
     - [x] navbar
-    - [ ] chosen
+    - [x] chosen
 - [x] Add custom module style
 - [x] Overwrite pagination
 - [x] Overwrite message
