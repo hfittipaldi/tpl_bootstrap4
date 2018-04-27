@@ -21,5 +21,5 @@
 - [x] Overwrite message
 - [ ] Styling frontpage
 - [ ] Styling menu
-- [ ] Components page
+- [x] Component page
 - [ ] Error page
