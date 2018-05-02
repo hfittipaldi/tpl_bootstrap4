@@ -110,15 +110,12 @@ function _reduce_displayed_pages($pages, $displayedPages)
 {
     $currentPageIndex = _get_current_page_index($pages);
     $midPoint = ceil($displayedPages / 2);
+    $startIndex = max($currentPageIndex - $midPoint, 0);
+    $pages = array_slice($pages, $startIndex, $displayedPages, true);
 
     if ($currentPageIndex >= $displayedPages)
     {
         $pages = array_slice($pages, -$displayedPages, null, true);
-    }
-    else
-    {
-        $startIndex = max($currentPageIndex - $midPoint, 0);
-        $pages = array_slice($pages, $startIndex, $displayedPages, true);
     }
 
     return $pages;
@@ -173,33 +170,36 @@ function _list_render($list)
 }
 
 /**
- * Renders an active item in the pagination block
+ * Get the number of items to be displayed
  *
- * @param   JPaginationObject  $item  The current pagination object
+ * @private
  *
- * @return  string                    HTML markup for active item
- *
- * @since   3.0
+ * @return int Number of items
  */
-function pagination_item_active(&$item)
+function _get_num_items()
 {
     $session = JFactory::getSession();
     $app     = JFactory::getApplication();
     $menu    = $app->getMenu()->getActive();
     $params  = JComponentHelper::getParams('com_content');
 
+    if (!is_object($menu))
+    {
+        $menu = $app->getMenu()->getDefault();
+    }
+
     $num_items = $menu->params->get('num_leading_articles') + $menu->params->get('num_intro_articles');
-    if ($menu->params->get('num_leading_articles') == 0)
+    if (empty($menu->params->get('num_leading_articles')))
     {
         $num_items += $params->get('num_leading_articles');
     }
 
-    if ($menu->params->get('num_intro_articles') == 0)
+    if (empty($menu->params->get('num_intro_articles')))
     {
         $num_items += $params->get('num_intro_articles');
     }
 
-    if ($menu->query['view'] === 'search' || $menu->params->get('display_num'))
+    if ($app->input->get('option') === 'com_search' || $menu->params->get('display_num'))
     {
         $name  = 'factor_' . $menu->id;
         $limit = $app->input->get('limit');
@@ -219,10 +219,24 @@ function pagination_item_active(&$item)
         }
     }
 
+    return $num_items;
+}
+
+/**
+ * Renders an active item in the pagination block
+ *
+ * @param   JPaginationObject  $item  The current pagination object
+ *
+ * @return  string                    HTML markup for active item
+ *
+ * @since   3.0
+ */
+function pagination_item_active(&$item)
+{
     $class = '';
     $rel   = '';
     $aria  = '';
-    $page  = ceil($item->base / $num_items) + 1;
+    $page  = ceil($item->base / _get_num_items()) + 1;
     $title = sprintf(JText::_('JLIB_HTML_PAGE_CURRENT'), '#' . $page);
 
     // Check for "Start" item
