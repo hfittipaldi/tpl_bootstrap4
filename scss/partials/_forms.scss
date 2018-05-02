@@ -2,13 +2,23 @@
    Forms
    ========================================================================== */
 
-.inputbox,
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="search"],
 select,
-textarea {
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.inputbox {
   display: block;
   width: 100%;
   padding: $input-padding-y $input-padding-x;
@@ -90,11 +100,11 @@ textarea {
 }
 
 .input-mini {
-    width: 60px;
+    width: 5em;
 }
 
 .input-small {
-    width: 90px;
+    width: 7em;
 }
 
 .input-medium {
@@ -102,15 +112,15 @@ textarea {
 }
 
 .input-large {
-    width: 210px;
+    width: 15em;
 }
 
 .input-xlarge {
-    width: 270px;
+    width: 19em;
 }
 
 .input-xxlarge {
-    width: 530px;
+    width: 37em;
 }
 
 /* Forms inline
