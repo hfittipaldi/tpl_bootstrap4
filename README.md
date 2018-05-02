@@ -22,4 +22,4 @@
 - [ ] Styling frontpage
 - [ ] Styling menu
 - [x] Component page
-- [ ] Error page
+- [x] Error page
