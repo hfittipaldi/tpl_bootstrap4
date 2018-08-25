@@ -73,34 +73,26 @@ JHtml::_('script', 'custom.js', array('version' => 'auto', 'relative' => true));
 unset($doc->_styleSheets[$this->baseurl . '/media/jui/css/bootstrap-extended.css']);
 unset($doc->_styleSheets[$this->baseurl . '/media/jui/css/bootstrap-responsive.min.css']);
 
+require_once 'font_styles.php';
 
 // Body Font
 if ($tpl_params->get('bodyFont'))
 {
-    JHtml::_('stylesheet', '//fonts.googleapis.com/css?family=' . $tpl_params->get('bodyFontName'));
+    JHtml::_('stylesheet', '//fonts.googleapis.com/css?family=' . $tpl_params->get('bodyFontName') . fontStyles('body'));
     $doc->addStyleDeclaration("
     body {
         font-family: '" . str_replace('+', ' ', $tpl_params->get('bodyFontName')) . "';
     }");
 }
 // Use of Google Font on titles
-if ($tpl_params->get('googleFont'))
+if ($tpl_params->get('titlesFont'))
 {
-    JHtml::_('stylesheet', '//fonts.googleapis.com/css?family=' . $tpl_params->get('googleFontName'));
+    JHtml::_('stylesheet', '//fonts.googleapis.com/css?family=' . $tpl_params->get('titlesFontName') . fontStyles('titles'));
     $doc->addStyleDeclaration("
     h1, h2, h3, h4, h5, h6,
     .h1, .h2, .h3, .h4, .h5, .h6,
     .site-title {
-        font-family: '" . str_replace('+', ' ', $tpl_params->get('googleFontName')) . "';
-    }");
-}
-// Navigation Font
-if ($tpl_params->get('navigationFont'))
-{
-    JHtml::_('stylesheet', '//fonts.googleapis.com/css?family=' . $tpl_params->get('navigationFontname'));
-    $doc->addStyleDeclaration("
-    nav {
-        font-family: '" . str_replace('+', ' ', $tpl_params->get('navigationFontname')) . "';
+        font-family: '" . str_replace('+', ' ', $tpl_params->get('titlesFontName')) . "';
     }");
 }
 

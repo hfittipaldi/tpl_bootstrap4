@@ -2,7 +2,7 @@
 <!DOCTYPE install PUBLIC "-//Joomla! 3.0//DTD template 1.0//EN" "https://www.joomla.org/xml/dtd/2.5/template-install.dtd">
 <extension version="3.0" type="template" client="site" method="upgrade">
     <name>Bootstrap 4</name>
-    <version>0.0.14.4</version>
+    <version>0.0.14.5</version>
     <creationDate>2018-03-26</creationDate>
     <author>Hugo Fittipaldi</author>
     <authorEmail>hugo.fittipaldi@gmail.com</authorEmail>
@@ -123,21 +123,9 @@
 
             <!-- GOOGLE FONTS-->
             <fieldset name="Font" label="Fonts">
-                <field name="googleFont" type="radio"
-                       class="btn-group btn-group-yesno"
-                       default="0"
-                       label="Google Font for Headings"
-                       description="Google Font for H1, H2, H3, etc" >
-                    <option value="1">JYES</option>
-                    <option value="0">JNO</option>
-                </field>
-                <field name="googleFontName"
-                       class=""
-                       type="text"
-                       default="Roboto+Slab"
-                       label="Font Name"
-                       description="Font Name"
-                       showon="googleFont:1"
+                <field name="spacer1"
+                       type="spacer"
+                       label="&lt;b&gt;The fonts name must be exact as it is on Google Fonts, or else they will not be loaded.&lt;/b&gt;"
                 />
 
                 <field name="bodyFont"
@@ -153,26 +141,60 @@
                        type="text"
                        default="Open+Sans"
                        label="Font Name"
-                       description="Font Name"
+                       description="Font name for body text."
                        showon="bodyFont:1"
                 />
+                <field name="bodyFontStyles"
+                       type="checkboxes"
+                       label="Extra Font Thickness"
+                       description="Extra font thickness besides Regular (400) and Bold (700). It will be loaded the italic style as well. Check if the chosen font has the ticknesses desired."
+                       showon="bodyFont:1" >
+                    <option value="100">Thin (100)</option>
+                    <option value="300">Light (300)</option>
+                    <option value="500">Medium (500)</option>
+                    <option value="600">Semi Bold (600)</option>
+                    <option value="800">Extra Bold (800)</option>
+                    <option value="900">Black (900)</option>
+                </field>
 
-                <field name="navigationFont"
+                <field name="titlesFont" type="radio"
                        class="btn-group btn-group-yesno"
-                       type="radio"
                        default="0"
-                       label="Google Font for Menu"
-                       description="Google Font for Menu" >
+                       label="Google Font for Headings"
+                       description="Google Font for H1, H2, H3, etc." >
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
                 </field>
-                <field name="navigationFontname"
+                <field name="titlesFontName"
+                       class=""
                        type="text"
-                       default="Open+Sans"
+                       default="Roboto+Slab"
                        label="Font Name"
-                       description="Font Name"
-                       showon="navigationFont:1"
+                       description="Font name for titles."
+                       showon="titlesFont:1"
                 />
+                <field name="titlesFontStyles"
+                       type="checkboxes"
+                       label="Extra Font Thickness"
+                       description="Extra font thickness. Check if the chosen font has the ticknesses desired."
+                       showon="titlesFont:1" >
+                    <option value="100">Thin (100)</option>
+                    <option value="100i">Thin Italic (100i)</option>
+                    <option value="300">Light (300)</option>
+                    <option value="300i">Light Italic (300i)</option>
+                    <option value="400">Regular (400)</option>
+                    <option value="400i">Regular Italic (400i)</option>
+                    <option value="500">Medium (500)</option>
+                    <option value="500i">Medium Italic (500i)</option>
+                    <option value="600">Semi Bold (600)</option>
+                    <option value="600i">Semi Bold Italic (600i)</option>
+                    <option value="700">Bold (700)</option>
+                    <option value="700i">Bold Italic (700i)</option>
+                    <option value="800">Extra Bold (800)</option>
+                    <option value="800i">Extra Bold Italic (800i)</option>
+                    <option value="900">Black (900)</option>
+                    <option value="900i">Black Italic (900i)</option>
+                </field>
             </fieldset>
 
             <!-- LAYOUT -->
