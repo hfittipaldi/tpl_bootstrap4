@@ -21,7 +21,7 @@ require_once $composerAutoload;
 use Phproberto\Sass\FileCompiler;
 
 $scssFolder  = dirname(__DIR__) . '/scss';
-$cssFolder   = dirname(__DIR__) . '/css/jui';
+$cssFolder   = dirname(__DIR__) . '/css';
 $cacheFolder = JPATH_ROOT . '/cache';
 
 require_once 'variables.php';
@@ -30,9 +30,12 @@ $scss = new FileCompiler($cacheFolder);
 
 try
 {
-    $scss->compileFile($scssFolder . '/bootstrap.scss', $cssFolder . '/bootstrap.min.css', FileCompiler::FORMATTER_EXPANDED);
-    $scss->compileFile($scssFolder . '/bootstrap-adapter.scss', $cssFolder . '/bootstrap-adapter.css', FileCompiler::FORMATTER_EXPANDED);
-    $scss->compileFile($scssFolder . '/chosen.scss', $cssFolder . '/chosen.css', FileCompiler::FORMATTER_EXPANDED);
+    $scss->compileFile($scssFolder . '/_bootstrap.scss', $cssFolder . '/jui/bootstrap.min.css', FileCompiler::FORMATTER_EXPANDED);
+    $scss->compileFile($scssFolder . '/_bootstrap-adapter.scss', $cssFolder . '/jui/bootstrap-adapter.css', FileCompiler::FORMATTER_EXPANDED);
+    $scss->compileFile($scssFolder . '/_chosen.scss', $cssFolder . '/jui/chosen.css', FileCompiler::FORMATTER_EXPANDED);
+    $scss->compileFile($scssFolder . '/_template.scss', $cssFolder . '/template.css', FileCompiler::FORMATTER_EXPANDED);
+    $scss->compileFile($scssFolder . '/_error.scss', $cssFolder . '/error.css', FileCompiler::FORMATTER_EXPANDED);
+    $scss->compileFile($scssFolder . '/_print.scss', $cssFolder . '/print.css', FileCompiler::FORMATTER_EXPANDED);
 }
 catch (Exception $e)
 {
