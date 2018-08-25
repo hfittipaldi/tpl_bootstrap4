@@ -14,10 +14,17 @@
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
 
+// Custom scss
+@import "partials/mixins";
+
 
 /* ==========================================================================
    LAYOUT
    ========================================================================== */
+
+body {
+    @include navbarPos($navbarPos);
+}
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6,

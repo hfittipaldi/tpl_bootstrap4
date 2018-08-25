@@ -118,6 +118,34 @@ else
     $wrapper = '';
 }
 
+// Get navbar options
+$looks = 'navbar-light';
+if ($tpl_params->get('navbarLooks') == 1)
+{
+    $looks = 'navbar-dark bg-primary';
+}
+elseif ($tpl_params->get('navbarLooks') == 2)
+{
+    $looks = 'navbar-dark bg-dark';
+}
+
+$position = '';
+if ($tpl_params->get('navbarPosition') == 1)
+{
+    $position = ' fixed-top';
+}
+elseif ($tpl_params->get('navbarPosition') == 2)
+{
+    $position = ' fixed-bottom';
+}
+
+$behavior = ' navbar-expand-' . $tpl_params->get('navbarBehavior', 'md');
+
+$navbar = $looks . $position . $behavior;
+
+$nContainer = (bool) $tpl_params->get('navbarContainer');
+
+
 // Logo file or site title param
 if ($tpl_params->get('logoFile'))
 {
@@ -136,6 +164,17 @@ if ($tpl_params->get('siteDescription'))
 {
     $logo .= '<div class="site-description">' . htmlspecialchars($tpl_params->get('siteDescription'), ENT_COMPAT, 'UTF-8') . '</div>';
 }
+
+// Position of brand and toggle button
+$brand = '<a class="navbar-brand" href="' . $this->baseurl . '">
+                ' . $logo . '
+            </a>';
+$btn_toggler = '
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+';
+$toggler = (bool) $tpl_params->get('navbarToggler') ? $brand . $btn_toggler : $btn_toggler . $brand;
 
 
 /**

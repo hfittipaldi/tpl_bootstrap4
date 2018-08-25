@@ -293,6 +293,9 @@ select:disabled, textarea:disabled, input[type="text"]:disabled, input[type="pas
 /* ==========================================================================
  Navbar
  ========================================================================== */
+.navbar-light {
+  background-color: #fff;
+}
 .nav-stacked {
   -webkit-box-orient: vertical !important;
   -webkit-box-direction: normal !important;

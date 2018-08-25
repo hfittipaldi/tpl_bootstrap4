@@ -33,15 +33,14 @@ require_once 'includes/params.php';
     . ($pageclass ? ' ' . $pageclass : '');
 ?>">
     <header class="page-header">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-            <a class="navbar-brand" href="<?php echo $this->baseurl; ?>">
-                <?php echo $logo; ?>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <nav class="navbar <?php echo $navbar; ?>">
+            <?php if (!$nContainer) : ?>
+            <div class="<?php echo $container; ?>">
+            <?php endif; ?>
 
-            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <?php echo $toggler; ?>
+
+            <div class="collapse navbar-collapse" id="navbarDefault">
                 <jdoc:include type="modules" name="mainnav" style="none" />
                 <?php if ($this->countModules('search')) : ?>
 
@@ -49,6 +48,11 @@ require_once 'includes/params.php';
                 <?php endif; ?>
 
             </div>
+
+            <?php if (!$nContainer) : ?>
+            </div>
+            <?php endif; ?>
+
         </nav>
     </header>
 

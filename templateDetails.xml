@@ -2,7 +2,7 @@
 <!DOCTYPE install PUBLIC "-//Joomla! 3.0//DTD template 1.0//EN" "https://www.joomla.org/xml/dtd/2.5/template-install.dtd">
 <extension version="3.0" type="template" client="site" method="upgrade">
     <name>Bootstrap 4</name>
-    <version>0.0.14.5</version>
+    <version>0.0.15</version>
     <creationDate>2018-03-26</creationDate>
     <author>Hugo Fittipaldi</author>
     <authorEmail>hugo.fittipaldi@gmail.com</authorEmail>
@@ -199,6 +199,86 @@
 
             <!-- LAYOUT -->
             <fieldset name="Layout" label="Layout Options">
+                <field name="spacer1"
+                       type="spacer"
+                       label="&lt;h3&gt;Navbar&lt;/h3&gt;"
+                />
+
+                <field name="navbarLooks"
+                       type="list"
+                       class=""
+                       default=""
+                       label="Aparência do navbar"
+                       description="Esquemas de cor da barra de navegação."
+                >
+                    <option value="">JGLOBAL_SELECT_AN_OPTION</option>
+                    <option value="0">Light</option>
+                    <option value="1">Primary</option>
+                    <option value="2">Dark</option>
+                </field>
+                <field name="navbarBg"
+                       type="color"
+                       class=""
+                       default="#ffffff"
+                       label="Cor de fundo do navbar"
+                       description="Escolha a cor de fundo da barra de navegação"
+                       showon="navbarLooks:0"
+                />
+
+                <field name="navbarPosition"
+                       type="list"
+                       class=""
+                       default=""
+                       label="Posição do navbar"
+                       description="Posição da barra de navegação."
+                >
+                    <option value="">JGLOBAL_SELECT_AN_OPTION</option>
+                    <option value="0">Default</option>
+                    <option value="1">Fixed on top</option>
+                    <option value="2">Fixed on bottom</option>
+                </field>
+
+                <field name="navbarContainer"
+                       type="radio"
+                       class="btn-group"
+                       default="1"
+                       label="Layout do navbar"
+                       description="Encaixotamento da barra de navegação."
+                >
+                    <option value="1">Full Layout</option>
+                    <option value="0">Boxed Layout</option>
+                </field>
+
+                <field name="navbarBehavior"
+                       type="list"
+                       class=""
+                       default=""
+                       label="Comportamento do navbar"
+                       description="Comportamento responsivo da barra de navegação. Controlar a partir de qual tamanho o botão de menu vai ser apresentado."
+                >
+                    <option value="">JGLOBAL_SELECT_AN_OPTION</option>
+                    <option value="sm">576px</option>
+                    <option value="md">768px</option>
+                    <option value="lg">992px</option>
+                    <option value="xl">1200px</option>
+                </field>
+
+                <field name="navbarToggler"
+                       type="radio"
+                       class="btn-group"
+                       default="1"
+                       label="Botão de alternar do navbar"
+                       description="Posição do botão &quot;hamburguer&quot; da barra de navegação."
+                >
+                    <option value="0">Esquerda</option>
+                    <option value="1">Direita</option>
+                </field>
+
+                <field name="spacer2"
+                       type="spacer"
+                       label="&lt;h3&gt;Layout do site&lt;/h3&gt;"
+                />
+
                 <field name="layout"
                        type="radio"
                        class="btn-group"

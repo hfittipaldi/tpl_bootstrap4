@@ -2,6 +2,12 @@
    Navbar
    ========================================================================== */
 
+@if $navbarBg {
+    .navbar-light {
+        background-color: $navbarBg;
+    }
+}
+
 .nav-stacked {
   -webkit-box-orient: vertical!important;
   -webkit-box-direction: normal!important;

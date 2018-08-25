@@ -1,0 +1,20 @@
+@mixin navbarPos($pos: 0) {
+    @if $pos == 1 {
+        margin-top: $font-size-base * 3.5;
+        margin-bottom: $font-size-base;
+    } @elseif $pos == 2 {
+        margin-bottom: $font-size-base * 3.5;
+    }
+}
+
+@mixin clear-col($width: false) {
+    margin-top: 1.5rem;
+
+    @if $width == false {
+        margin-right: ($grid-gutter-width / 2);
+        margin-left: ($grid-gutter-width / 2);
+    }
+
+    border-top: $hr-border-width solid $hr-border-color;
+    width: 100%;
+}

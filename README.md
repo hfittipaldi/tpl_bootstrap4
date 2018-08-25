@@ -4,7 +4,7 @@
 
 #### TODO list
 ----------
-- [ ] Add Navbar design to template
+- [x] Add Navbar design to template
 - [x] Template Sass compilation
   - [x] Fix bootstrap alert compilation
   - [x] Remove bootstrap extended
