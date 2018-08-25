@@ -5,3 +5,155 @@
  * @copyright   Hugo Fittipaldi (C) 2018. All rights reserved.
  * @license     GNU General Public License version 3 or later; see LICENSE
  */
+/* ==========================================================================
+ LAYOUT
+ ========================================================================== */
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, address, blockquote, dl, dt, dd, fieldset, figure, footer, legend, p, ol, ul {
+  margin-bottom: 0;
+}
+* + h1, * + h2, * + h3, * + h4, * + h5, * + h6, * + .h1, * + .h2, * + .h3, * + .h4, * + .h5, * + .h6, * + address, * + blockquote, * + dl, * + dt, * + fieldset, * + figure, * + footer, * + form, * + p, * + ol, * + ul {
+  margin-top: 1em;
+}
+h1 + *, h2 + *, h3 + *, h4 + *, h5 + *, h6 + *, .h1 + *, .h2 + *, .h3 + *, .h4 + *, .h5 + *, .h6 + * {
+  margin-top: 0.5rem;
+}
+dd + dd, .page-header + * {
+  margin-top: 1em;
+}
+a[rel*='external']::after {
+  font-family: 'IcoMoon';
+  content: "\e251";
+  display: inline-block;
+  margin-right: 0.3em;
+  margin-left: 0.3em;
+  vertical-align: bottom;
+  cursor: text;
+}
+a[href$=".doc"]::after, a[href$=".docx"]::after, a[href$=".xls"]::after, a[href$=".xlsx"]::after, a[href$=".pdf"]::after {
+  display: inline-block;
+  margin-left: 0.3em;
+  font-weight: bold;
+  font-style: normal;
+  font-size: x-small;
+  white-space: nowrap;
+  vertical-align: text-bottom;
+  cursor: text;
+}
+a[href$=".pdf"]::after {
+  content: '(PDF)';
+}
+a[href$=".pdf"][title$=' KB']::after, a[href$=".pdf"][title$=' MB']::after {
+  content: '(PDF - ' attr(title) ')';
+}
+a[href$=".doc"]::after, a[href$=".docx"]::after {
+  content: '(DOC)';
+}
+a[href$=".doc"][title$=' KB']::after, a[href$=".docx"][title$=' KB']::after, a[href$=".doc"][title$=' MB']::after, a[href$=".docx"][title$=' MB']::after {
+  content: '(DOC - ' attr(title) ')';
+}
+a[href$=".xls"]::after, a[href$=".xlsx"]::after {
+  content: '(XLS)';
+}
+a[href$=".xls"][title$=' KB']::after, a[href$=".xls"][title$=' MB']::after, a[href$=".xlsx"][title$=' KB']::after, a[href$=".xlsx"][title$=' MB']::after {
+  content: '(XLS - ' attr(title) ')';
+}
+a.noinfo::after {
+  display: none;
+}
+blockquote {
+  border-left: 5px solid #007bff;
+  padding: 1rem 2rem;
+  background-color: #f8f9fa;
+}
+iframe {
+  max-width: 100%;
+  max-height: 100%;
+}
+[style*="float: left;"], [style*="float: right;"], .float-left, .float-right, .pull-left, .pull-right {
+  margin-top: 1.25em;
+  margin-bottom: 0.25em;
+}
+@media (min-width: 768px) {
+  [style*="float: left;"], [style*="float: right;"], .float-left, .float-right, .pull-left, .pull-right {
+    max-width: 55%;
+  }
+}
+[style*="float: left;"]:first-child, [style*="float: right;"]:first-child, .float-left:first-child, .float-right:first-child, .pull-left:first-child, .pull-right:first-child {
+  margin-top: 0;
+}
+@media (min-width: 768px) {
+  [style*="float: left;"]:first-child, [style*="float: right;"]:first-child, .float-left:first-child, .float-right:first-child, .pull-left:first-child, .pull-right:first-child {
+    margin-top: 0.25em;
+  }
+}
+[style*="float: left;"], .pull-left, .float-left {
+  margin-right: 1em;
+}
+[style*="float: right;"], .pull-right, .float-right {
+  margin-left: 1em;
+}
+@media (max-width: 767.98px) {
+  .clear-sm {
+    float: none !important;
+    margin-right: auto;
+    margin-left: 0;
+  }
+}
+.article-info dd {
+  margin-top: 0;
+  font-size: 90%;
+}
+.aside {
+  font-size: 90%;
+}
+@media (max-width: 575.98px) {
+  .aside::before {
+    content: '';
+    display: block;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+    width: 100%;
+  }
+}
+.container-fluid {
+  max-width: 1170px;
+}
+.optional {
+  font-size: 90%;
+  color: #adb5bd;
+}
+.page-footer {
+  font-size: 85%;
+}
+.page-footer::before {
+  content: '';
+  display: block;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, .1);
+  width: 100%;
+}
+/* Icons
+ ========================================================================== */
+[class^="icon-"], [class*=" icon-"] {
+  width: 1rem;
+  height: 1rem;
+  vertical-align: middle;
+}
+/* Images
+ ========================================================================== */
+figure {
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  figure {
+    max-width: 90%;
+  }
+}
+@media (min-width: 1200px) {
+  figure {
+    max-width: 80%;
+  }
+}

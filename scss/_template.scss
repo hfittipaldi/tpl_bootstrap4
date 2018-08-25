@@ -5,3 +5,235 @@
  * @copyright   Hugo Fittipaldi (C) 2018. All rights reserved.
  * @license     GNU General Public License version 3 or later; see LICENSE
  */
+
+// Variable overrides
+@import "partials/variables";
+
+// Required
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+
+/* ==========================================================================
+   LAYOUT
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+address, blockquote, dl, dt, dd,
+fieldset, figure, footer, legend,
+p, ol, ul {
+    margin-bottom: 0;
+}
+
+* {
+    + h1, + h2, + h3, + h4, + h5, + h6,
+    + .h1, + .h2, + .h3, + .h4, + .h5, + .h6,
+    + address, + blockquote, + dl, + dt,
+    + fieldset, + figure, + footer,
+    + form, + p, + ol, + ul {
+        margin-top: 1em;
+    }
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    + * {
+        margin-top: $font-size-base / 2;
+    }
+}
+
+dd + dd,
+.page-header + * {
+    margin-top: 1em;
+}
+
+a {
+    &[rel*='external']::after {
+        font-family: 'IcoMoon';
+        content: "\e251";
+        display: inline-block;
+        margin-right: .3em;
+        margin-left: .3em;
+        vertical-align: bottom;
+        cursor: text;
+    }
+
+    &[href$=".doc"]::after,
+    &[href$=".docx"]::after,
+    &[href$=".xls"]::after,
+    &[href$=".xlsx"]::after,
+    &[href$=".pdf"]::after {
+        display: inline-block;
+        margin-left: .3em;
+        font-weight: bold;
+        font-style: normal;
+        font-size: x-small;
+        white-space: nowrap;
+        vertical-align: text-bottom;
+        cursor: text;
+    }
+
+    &[href$=".pdf"] {
+        &::after {
+            content: '(PDF)';
+        }
+
+        &[title$=' KB']::after,
+        &[title$=' MB']::after {
+            content: '(PDF - ' attr(title) ')';
+        }
+    }
+
+    &[href$=".doc"],
+    &[href$=".docx"] {
+        &::after {
+            content: '(DOC)';
+        }
+
+        &[title$=' KB']::after,
+        &[title$=' MB']::after {
+            content: '(DOC - ' attr(title) ')';
+        }
+    }
+
+    &[href$=".xls"]::after,
+    &[href$=".xlsx"]::after {
+        content: '(XLS)';
+    }
+
+    &[href$=".xls"][title$=' KB']::after,
+    &[href$=".xls"][title$=' MB']::after,
+    &[href$=".xlsx"][title$=' KB']::after,
+    &[href$=".xlsx"][title$=' MB']::after {
+        content: '(XLS - ' attr(title) ')';
+    }
+
+    &.noinfo::after {
+        display: none;
+    }
+}
+
+blockquote {
+    border-left: 5px solid $primary;
+    padding: 1rem 2rem;
+    background-color: $gray-100;
+}
+
+iframe {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+[style*="float: left;"],
+[style*="float: right;"],
+.float-left,
+.float-right,
+.pull-left,
+.pull-right {
+    margin-top: 1.25em;
+    margin-bottom: 0.25em;
+
+    @include media-breakpoint-up(md) {
+        max-width: 55%;
+    }
+
+    &:first-child {
+        margin-top: 0;
+
+        @include media-breakpoint-up(md) {
+            margin-top: 0.25em;
+        }
+    }
+}
+
+[style*="float: left;"],
+.pull-left,
+.float-left {
+    margin-right: 1em;
+}
+
+[style*="float: right;"],
+.pull-right,
+.float-right {
+    margin-left: 1em;
+}
+
+@include media-breakpoint-down(sm) {
+    .clear-sm {
+        float: none !important;
+        margin-right: auto;
+        margin-left: 0;
+    }
+}
+
+.article-info {
+    dd {
+        margin-top: 0;
+        font-size: 90%;
+    }
+}
+
+.aside {
+    font-size: 90%;
+
+    @include media-breakpoint-down(xs) {
+        &::before {
+            content: '';
+            display: block;
+            margin-top: $hr-margin-y * 2;
+            margin-bottom: $hr-margin-y * 2;
+            border-top: $hr-border-width solid $hr-border-color;
+            width: 100%;
+        }
+    }
+}
+
+.container-fluid {
+    max-width: 1170px;
+}
+
+.optional {
+    font-size: 90%;
+    color: $gray-500;
+}
+
+.page-footer {
+    font-size: 85%;
+
+    &::before {
+        content: '';
+        display: block;
+        margin-top: $hr-margin-y * 2;
+        margin-bottom: $hr-margin-y * 2;
+        border-top: $hr-border-width solid $hr-border-color;
+        width: 100%;
+    }
+}
+
+/* Icons
+   ========================================================================== */
+
+[class^="icon-"],
+[class*=" icon-"] {
+    width: 1rem;
+    height: 1rem;
+    vertical-align: middle;
+}
+
+/* Images
+   ========================================================================== */
+
+figure {
+    margin-right: auto;
+    margin-left: auto;
+
+    @include media-breakpoint-up(md) {
+        max-width: 90%;
+    }
+
+    @include media-breakpoint-up(xl) {
+        max-width: 80%;
+    }
+}
