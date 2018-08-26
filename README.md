@@ -19,6 +19,7 @@
 - [x] Add custom module style
 - [x] Overwrite pagination
 - [x] Overwrite message
+- [x] Add grid layout
 - [ ] Styling frontpage
 - [ ] Styling menu
 - [x] Component page

@@ -66,7 +66,7 @@ require_once 'includes/params.php';
         <!-- End Showcase -->
         <?php endif; ?>
 
-        <div class="<?php echo $container . ' ' . $wrapper; ?>wrapper">
+        <div class="<?php echo $container . ' ' . $wrapper; ?>">
             <div class="breadcrumbs">
             <?php if ($this->countModules('breadcrumbs')) : ?>
 

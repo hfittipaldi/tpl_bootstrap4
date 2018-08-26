@@ -219,6 +219,10 @@ iframe {
     }
 }
 
+.main > * {
+    margin-top: $font-size-base;
+}
+
 /* Icons
    ========================================================================== */
 
@@ -242,5 +246,185 @@ figure {
 
     @include media-breakpoint-up(xl) {
         max-width: 80%;
+    }
+}
+
+
+/* ==========================================================================
+   GRID
+   ========================================================================== */
+
+.wrapper {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: auto;
+        grid-template-rows: auto;
+    grid-template-areas:
+        "breadcrumbs"
+        "main"
+        "left"
+        "right";
+    grid-column-gap: $grid-gutter-width;
+
+    .breadcrumbs {
+        grid-area: breadcrumbs;
+        -ms-grid-column: 1;
+        -ms-grid-row: 1;
+    }
+
+    .main {
+        grid-area: main;
+        -ms-grid-column: 1;
+        -ms-grid-row: 2;
+    }
+
+    .aside--lft {
+        grid-area: left;
+        -ms-grid-column: 1;
+        -ms-grid-row: 3;
+    }
+
+    .aside--rgt {
+        grid-area: right;
+        justify-self: center;
+        -ms-grid-column: 1;
+        -ms-grid-row: 4;
+        -ms-grid-column-align: center;
+        width: 100%;
+    }
+}
+
+// Only column left
+.wrapper--lft {
+    @include media-breakpoint-up(sm) {
+        grid-template-areas:
+            "left breadcrumbs"
+            "left main";
+        -ms-grid-columns: 180px $grid-gutter-width 1fr;
+            grid-template-columns: 180px 1fr;
+        -ms-grid-rows: auto 1fr;
+            grid-template-rows: auto 1fr;
+
+        .breadcrumbs {
+            -ms-grid-column: 3;
+            -ms-grid-row: 1;
+        }
+
+        .main {
+            -ms-grid-column: 3;
+            -ms-grid-row: 2;
+            -ms-grid-row-span: 2;
+        }
+
+        .aside--lft {
+            -ms-grid-column: 1;
+            -ms-grid-row: 1;
+            -ms-grid-row-span: 2;
+        }
+    }
+
+    @media (min-width: 630px) {
+        -ms-grid-columns: minmax(200px, (250 / 1140 * 100%)) $grid-gutter-width 1fr;
+            grid-template-columns: minmax(200px, (250 / 1140 * 100%)) 1fr;
+    }
+}
+
+// Only column right
+.wrapper--rgt {
+    @include media-breakpoint-up(sm) {
+        grid-template-areas:
+            "breadcrumbs right"
+            "main        right";
+        -ms-grid-columns: 1fr $grid-gutter-width 125px;
+            grid-template-columns: 1fr 125px;
+        -ms-grid-rows: auto 1fr;
+            grid-template-rows: auto 1fr;
+
+        .breadcrumbs {
+            -ms-grid-column: 1;
+            -ms-grid-row: 1;
+        }
+
+        .main {
+            -ms-grid-column: 1;
+            -ms-grid-row: 2;
+            -ms-grid-row-span: 2;
+        }
+
+        .aside--rgt {
+            -ms-grid-column: 3;
+            -ms-grid-row: 1;
+            -ms-grid-row-span: 2;
+        }
+    }
+}
+
+// Both columns
+.wrapper--lft-rgt {
+    @include media-breakpoint-up(sm) {
+        -ms-grid-columns: 1fr $grid-gutter-width minmax(200px, 20%);
+            grid-template-columns: 1fr minmax(200px, 20%);
+        -ms-grid-rows: auto auto 1fr;
+            grid-template-rows: repeat(2, auto) 1fr;
+        grid-template-areas:
+            "breadcrumbs left"
+            "main        left"
+            "main        right";
+
+        .breadcrumbs {
+            -ms-grid-column: 1;
+            -ms-grid-row: 1;
+        }
+
+        .main {
+            -ms-grid-column: 1;
+            -ms-grid-row: 2;
+            -ms-grid-row-span: 2;
+        }
+
+        .aside--lft {
+            -ms-grid-column: 3;
+            -ms-grid-row: 1;
+            -ms-grid-row-span: 2;
+        }
+
+        .aside--rgt {
+            -ms-grid-column: 3;
+            -ms-grid-row: 3;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        -ms-grid-columns: minmax(180px, 18.5%) $grid-gutter-width 1fr $grid-gutter-width 125px;
+            grid-template-columns: minmax(180px, 18.5%) 1fr 125px;
+        -ms-grid-rows: auto 1fr;
+            grid-template-rows: auto 1fr;
+        grid-template-areas:
+            "left breadcrumbs right"
+            "left main        right";
+
+        .breadcrumbs {
+            -ms-grid-column: 3;
+            -ms-grid-row: 1;
+        }
+
+        .main {
+            -ms-grid-column: 3;
+            -ms-grid-row: 2;
+        }
+
+        .aside--lft {
+            -ms-grid-column: 1;
+            -ms-grid-row: 1;
+            -ms-grid-row-span: 2;
+        }
+
+        .aside--rgt {
+            -ms-grid-column: 5;
+            -ms-grid-row: 1;
+            -ms-grid-row-span: 2;
+        }
     }
 }

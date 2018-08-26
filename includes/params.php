@@ -101,21 +101,18 @@ $container  = 'container';
 $container .= !$tpl_params->get('layout') ? '' : '-fluid';
 
 // Adjusting layout
+$wrapper = 'wrapper';
 if ($this->countModules('left') && $this->countModules('right'))
 {
-    $wrapper = 'wrapper--lft-rgt ';
+    $wrapper .= ' wrapper--lft-rgt';
 }
 elseif ($this->countModules('left'))
 {
-    $wrapper = 'wrapper--lft ';
+    $wrapper .= ' wrapper--lft';
 }
 elseif ($this->countModules('right'))
 {
-    $wrapper = 'wrapper--rgt ';
-}
-else
-{
-    $wrapper = '';
+    $wrapper .= ' wrapper--rgt';
 }
 
 // Get navbar options
