@@ -49,11 +49,7 @@ $itemid   = $jinput->getInt('Itemid', '');
 $sitename = htmlspecialchars($app->get('sitename', ''), ENT_QUOTES, 'UTF-8');
 
 // Get pageclass suffix
-$pageclass = '';
-if (is_object($menu_active))
-{
-    $pageclass = $menu_active->params->get('pageclass_sfx');
-}
+$pageclass = !is_object($menu_active) ?: $menu_active->params->get('pageclass_sfx');
 
 
 // Add Stylesheets
@@ -97,8 +93,7 @@ if ($tpl_params->get('titlesFont'))
 }
 
 // Get template layout
-$container  = 'container';
-$container .= !$tpl_params->get('layout') ? '' : '-fluid';
+$container = !$tpl_params->get('layout') ? 'container' : 'container-fluid';
 
 // Adjusting layout
 $wrapper = 'wrapper';
@@ -144,6 +139,7 @@ $nContainer = (bool) $tpl_params->get('navbarContainer');
 
 
 // Logo file or site title param
+$logo = '<span class="site-title" title="' . $sitename . '">' . $sitename . '</span>';
 if ($tpl_params->get('logoFile'))
 {
     $logo = '<img src="' . JUri::root() . $tpl_params->get('logoFile') . '" alt="' . $sitename . '" />';
@@ -151,10 +147,6 @@ if ($tpl_params->get('logoFile'))
 elseif ($tpl_params->get('siteTitle'))
 {
     $logo = '<span class="site-title" title="' . $sitename . '">' . htmlspecialchars($tpl_params->get('siteTitle'), ENT_COMPAT, 'UTF-8') . '</span>';
-}
-else
-{
-    $logo = '<span class="site-title" title="' . $sitename . '">' . $sitename . '</span>';
 }
 
 if ($tpl_params->get('siteDescription'))

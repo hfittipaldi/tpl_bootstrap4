@@ -32,6 +32,7 @@ $sitename = htmlspecialchars($app->get('sitename', ''), ENT_QUOTES, 'UTF-8');
 $container = $params->get('layout') ? 'container-fluid' : 'container';
 
 // Logo file or site title param
+$logo = '<span class="site-title" title="' . $sitename . '">' . $sitename . '</span>';
 if ($params->get('logoFile'))
 {
     $logo = '<img src="' . JUri::root() . $params->get('logoFile') . '" alt="' . $sitename . '" />';
@@ -39,10 +40,6 @@ if ($params->get('logoFile'))
 elseif ($params->get('siteTitle'))
 {
     $logo = '<span class="site-title" title="' . $sitename . '">' . htmlspecialchars($params->get('siteTitle'), ENT_COMPAT, 'UTF-8') . '</span>';
-}
-else
-{
-    $logo = '<span class="site-title" title="' . $sitename . '">' . $sitename . '</span>';
 }
 
 if ($params->get('siteDescription'))
