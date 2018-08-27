@@ -67,15 +67,14 @@ require_once 'includes/params.php';
         <?php endif; ?>
 
         <div class="<?php echo $container . ' ' . $wrapper; ?>">
-            <div class="breadcrumbs">
-            <?php if ($this->countModules('breadcrumbs')) : ?>
-
             <!-- Begin Breadcrumbs -->
+            <nav class="breadcrumbs">
+            <?php if ($this->countModules('breadcrumbs')) : ?>
                 <jdoc:include type="modules" name="breadcrumbs" style="none" />
-            <!-- End Breadcrumbs -->
             <?php endif; ?>
 
-            </div>
+            </nav>
+            <!-- End Breadcrumbs -->
 
             <main class="main">
                 <!-- Begin Content -->
@@ -88,18 +87,17 @@ require_once 'includes/params.php';
                 <jdoc:include type="component" />
                 <?php if ($this->countModules('content-bottom')) : ?>
 
+                <hr />
                 <jdoc:include type="modules" name="content-bottom" style="none" />
                 <?php endif; ?>
 
                 <!-- End Content -->
             </main>
 
-            <hr>
-
             <?php if ($this->countModules('left')) : ?>
             <!-- Begin Left Sidebar -->
             <aside class="aside aside--lft">
-                <jdoc:include type="modules" name="left" style="none" />
+                <jdoc:include type="modules" name="left" style="card" />
             </aside>
             <!-- End Left Sidebar -->
             <?php endif; ?>
@@ -107,7 +105,7 @@ require_once 'includes/params.php';
             <?php if ($this->countModules('right')) : ?>
             <!-- Begin Right Sidebar -->
             <aside class="aside aside--rgt">
-                <jdoc:include type="modules" name="right" style="none" />
+                <jdoc:include type="modules" name="right" style="html5" />
             </aside>
             <!-- End Right Sidebar -->
             <?php endif; ?>

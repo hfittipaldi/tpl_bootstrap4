@@ -29,7 +29,7 @@ function modChrome_card($module, &$params, &$attribs)
 
     if ($module->content)
     {
-        echo '<' . $moduleTag . ' class="' . $modulePos . ' card ' . htmlspecialchars($params->get('moduleclass_sfx')) . '">';
+        echo '<' . $moduleTag . ' class="moduletable ' . $modulePos . ' card ' . htmlspecialchars($params->get('moduleclass_sfx')) . '">';
         echo '<div class="card-body">';
         if ($module->showtitle)
         {
@@ -47,13 +47,14 @@ function modChrome_cardHeader($module, &$params, &$attribs)
     $moduleTag     = $params->get('module_tag', 'div');
     $headerTag     = htmlspecialchars($params->get('header_tag', 'h3'));
     $headerClass   = htmlspecialchars($params->get('header_class', ''));
+    $headerClass   = $headerClass ? ' class="' . $headerClass . '"' : '';
 
     if ($module->content)
     {
-        echo '<' . $moduleTag . ' class="' . $modulePos . ' card ' . htmlspecialchars($params->get('moduleclass_sfx')) . '">';
+        echo '<' . $moduleTag . ' class="moduletable ' . $modulePos . ' card ' . htmlspecialchars($params->get('moduleclass_sfx')) . '">';
         if ($module->showtitle)
         {
-            echo '<' . $headerTag . ' class="card-header' . $headerClass . '">' . $module->title . '</' . $headerTag . '>';
+            echo '<div class="card-header"><' . $headerTag . $headerClass . '>' . $module->title . '</' . $headerTag . '></div>';
         }
         echo '<div class="card-body">';
         echo $module->content;

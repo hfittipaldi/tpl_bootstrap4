@@ -2,6 +2,22 @@
    Lists
    ========================================================================== */
 
+.inline {
+    @include list-unstyled;
+
+    > li {
+        display: inline-block;
+
+        &:not(:last-child) {
+            margin-right: $list-inline-padding;
+        }
+    }
+}
+
+.unstyled {
+    @include list-unstyled;
+}
+
 @include media-breakpoint-up(sm) {
   .dl-horizontal {
     dt {

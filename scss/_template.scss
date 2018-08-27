@@ -428,3 +428,53 @@ figure {
         }
     }
 }
+
+/* ==========================================================================
+   MODULES
+   ========================================================================== */
+
+.moduletable {
+    margin-top: $font-size-base;
+
+    h3 {
+        font-size: 1.35em;
+    }
+}
+
+/* Breadcrumbs
+   ========================================================================== */
+
+.breadcrumb {
+    margin-top: $font-size-base;
+    margin-bottom: 0;
+}
+
+/* Banners
+   ========================================================================== */
+
+.bannergroup,
+.banneritem {
+    margin-top: $font-size-base;
+    text-align: center;
+}
+
+/* Login
+   ========================================================================== */
+
+#login-form {
+    display: block;
+
+    .userdata {
+        .control-group:first-child {
+            margin-top: 0;
+
+            .controls {
+                margin-top: 0;
+            }
+        }
+    }
+
+    .logout-button {
+        margin-top: $font-size-base;
+    }
+}
