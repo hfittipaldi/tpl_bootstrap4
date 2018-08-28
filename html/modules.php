@@ -62,3 +62,8 @@ function modChrome_cardHeader($module, &$params, &$attribs)
         echo '</' . $moduleTag . '>';
     }
 }
+
+function modChrome_menuHover($module, &$params, &$attribs)
+{
+    echo $module->content;
+}

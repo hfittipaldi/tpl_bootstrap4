@@ -21,6 +21,6 @@
 - [x] Overwrite message
 - [x] Add grid layout
 - [ ] Styling frontpage
-- [ ] Styling menu
+- [x] Styling main menu
 - [x] Component page
 - [x] Error page

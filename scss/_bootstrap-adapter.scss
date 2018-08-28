@@ -16,10 +16,11 @@
 
 // Custom scss
 @import "partials/layout";
+@import "partials/grid";
 @import "partials/forms";
 @import "partials/input-group";
+@import "partials/nav";
+@import "partials/navbar";
 @import "partials/breadcrumb";
 @import "partials/lists";
-@import "partials/grid";
-@import "partials/navs";
-@import "partials/navbar";
+
