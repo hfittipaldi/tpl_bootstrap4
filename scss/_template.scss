@@ -226,6 +226,40 @@ iframe {
     margin-top: $font-size-base;
 }
 
+/* Cards
+   ========================================================================== */
+
+// Accordion
+.accordion,
+.card-accordion {
+    width: 100%;
+
+    > .accordion-group,
+    > .card {
+        margin-top: $font-size-base / 2;
+        border-bottom-width: 0;
+
+        .card-header {
+            padding: 0;
+
+            h1 {
+                margin-top: 0;
+                font-size: 1.2rem;
+
+                a {
+                    display: block;
+                    padding: $card-spacer-y $card-spacer-x;
+                }
+            }
+        }
+
+        > .collapse.show {
+            border-bottom: $card-border-width solid $card-border-color;
+            @include border-bottom-radius($card-border-radius);
+        }
+    }
+}
+
 /* Icons
    ========================================================================== */
 
@@ -257,8 +291,46 @@ figure {
     }
 }
 
+/* Navbars
+   ========================================================================== */
+
+.tab-content {
+    padding-top: 1.25rem;
+
+    > *:first-child {
+        margin-top: 0;
+    }
+}
+
 /* Page navigation
    ========================================================================== */
+
+.pager {
+    padding-left: 0;
+    list-style: none;
+
+    &::after {
+        content: '';
+        display: table;
+        width: 100%;
+    }
+
+    @include media-breakpoint-up(md) {
+        .previous,
+        .next {
+            white-space: nowrap;
+        }
+    }
+
+        .previous {
+            float: left;
+        }
+
+        .next {
+            float: right;
+            text-align: right;
+        }
+}
 
 div.pagination {
     margin-top: $font-size-base * 2;
@@ -311,6 +383,20 @@ ul.pagination {
     .icon-chevron-right::before {
         font-size: 70%;
     }
+}
+
+/* Vote system
+   ========================================================================== */
+
+.content_vote {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; // Prevent shorter elements from growing to same height as others (e.g., small buttons growing to normal sized button height)
 }
 
 
@@ -648,6 +734,11 @@ nav.navbar div[class^="container"] {
 div[itemprop="articleBody"] {
     margin-top: $font-size-base;
 }
+
+.icons + .article-info {
+    margin-top: 0;
+}
+
 
 /* Featured Articles
    ========================================================================== */

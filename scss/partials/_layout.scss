@@ -6,6 +6,25 @@
   @include sr-only();
 }
 
+.pull-center,
+.pull-none {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.pull-left {
+    @include float-left;
+}
+
+.pull-right {
+    @include float-right;
+}
+
+img.pull-center {
+    display: block;
+}
+
 .red, .star {
   color: #c00;
 }

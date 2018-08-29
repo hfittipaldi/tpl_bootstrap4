@@ -24,15 +24,15 @@
 - [x] Add grid layout
 - [x] Add main menu layout
 - [x] Add frontpage layout
-- [ ] Add components layout
-  - [ ] Cards
-  - [ ] Navbars
-  - [ ] Page navigation
-  - [ ] Vote system
-  - [ ] Dropdown-menu
-  - [ ] Badges
-  - [ ] Images
-  - [ ] Popover
+- [x] Add components layout
+  - [x] Cards
+  - [x] Navbars
+  - [x] Page navigation Plugin
+  - [x] Vote system
+  - [x] Dropdown-menu
+  - [x] Badges
+  - [x] Images
+  - [x] Popover
 - [ ] Add form layout
 - [ ] Add form edit layout
 - [ ] Add contact page layout

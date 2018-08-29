@@ -142,6 +142,31 @@ iframe {
 .alert {
   margin-top: 1rem;
 }
+/* Cards
+ ========================================================================== */
+.accordion, .card-accordion {
+  width: 100%;
+}
+.accordion > .accordion-group, .card-accordion > .accordion-group, .accordion > .card, .card-accordion > .card {
+  margin-top: 0.5rem;
+  border-bottom-width: 0;
+}
+.accordion > .accordion-group .card-header, .card-accordion > .accordion-group .card-header, .accordion > .card .card-header, .card-accordion > .card .card-header {
+  padding: 0;
+}
+.accordion > .accordion-group .card-header h1, .card-accordion > .accordion-group .card-header h1, .accordion > .card .card-header h1, .card-accordion > .card .card-header h1 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+.accordion > .accordion-group .card-header h1 a, .card-accordion > .accordion-group .card-header h1 a, .accordion > .card .card-header h1 a, .card-accordion > .card .card-header h1 a {
+  display: block;
+  padding: 0.75rem 1.25rem;
+}
+.accordion > .accordion-group > .collapse.show, .card-accordion > .accordion-group > .collapse.show, .accordion > .card > .collapse.show, .card-accordion > .card > .collapse.show {
+  border-bottom: 1px solid rgba(0, 0, 0, .125);
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
 /* Icons
  ========================================================================== */
 [class^="icon-"], [class*=" icon-"] {
@@ -169,8 +194,37 @@ figure {
     max-width: 80%;
   }
 }
+/* Navbars
+ ========================================================================== */
+.tab-content {
+  padding-top: 1.25rem;
+}
+.tab-content > *:first-child {
+  margin-top: 0;
+}
 /* Page navigation
  ========================================================================== */
+.pager {
+  padding-left: 0;
+  list-style: none;
+}
+.pager::after {
+  content: '';
+  display: table;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .pager .previous, .pager .next {
+    white-space: nowrap;
+  }
+}
+.pager .previous {
+  float: left;
+}
+.pager .next {
+  float: right;
+  text-align: right;
+}
 div.pagination {
   margin-top: 2rem;
   width: 100%;
@@ -219,6 +273,18 @@ ul.pagination {
 }
 .readmore .btn .icon-chevron-right::before {
   font-size: 70%;
+}
+/* Vote system
+ ========================================================================== */
+.content_vote {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 /* ==========================================================================
  GRID
@@ -476,6 +542,9 @@ ul.pagination {
  ========================================================================== */
 div[itemprop="articleBody"] {
   margin-top: 1rem;
+}
+.icons + .article-info {
+  margin-top: 0;
 }
 /* Featured Articles
  ========================================================================== */

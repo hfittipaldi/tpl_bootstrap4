@@ -1,0 +1,35 @@
+.accordion-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: $card-bg;
+    background-clip: border-box;
+    border: $card-border-width solid $card-border-color;
+    @include border-radius($card-border-radius);
+
+    .accordion-heading {
+        padding: $card-spacer-y $card-spacer-x;
+        margin-bottom: 0; // Removes the default margin-bottom of <hN>
+        background-color: $card-cap-bg;
+        border-bottom: $card-border-width solid $card-border-color;
+
+        &:first-child {
+            @include border-radius($card-inner-border-radius $card-inner-border-radius 0 0);
+        }
+
+        + .list-group {
+            .list-group-item:first-child {
+                border-top: 0;
+            }
+        }
+    }
+
+    .accordion-body {
+        // Enable `flex-grow: 1` for decks and groups so that card blocks take up
+        // as much space as possible, ensuring footers are aligned to the bottom.
+        flex: 1 1 auto;
+        padding: $card-spacer-x;
+    }
+}

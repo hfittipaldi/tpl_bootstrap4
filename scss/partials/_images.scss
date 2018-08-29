@@ -1,0 +1,21 @@
+//
+// Figures
+//
+
+figure {
+    // Ensures the caption's text aligns with the image.
+    display: table;
+
+    > img {
+        margin-bottom: ($spacer / 2);
+        line-height: 1;
+    }
+
+    figcaption {
+        display: table-caption;
+        caption-side: bottom;
+        font-size: $figure-caption-font-size;
+        color: $figure-caption-color;
+    }
+}
+
