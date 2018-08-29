@@ -20,7 +20,7 @@
 - [x] Overwrite pagination
 - [x] Overwrite message
 - [x] Add grid layout
-- [ ] Styling frontpage
+- [x] Styling frontpage
 - [x] Styling main menu
 - [x] Component page
 - [x] Error page
