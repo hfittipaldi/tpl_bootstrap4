@@ -11,12 +11,12 @@ defined('_JEXEC') or die;
 
 $msgList = $displayData['msgList'];
 
-if (is_array($msgList) && !empty($msgList)) : ?>
+if (is_array($msgList) && !empty($msgList)) { ?>
 
 <div id="system-message-container">
-        <?php foreach ($msgList as $type => $msgs) :
-            switch (strtolower($type))
-            {
+    <?php
+    foreach ($msgList as $type => $msgs) {
+        switch (strtolower($type)) {
                 case 'danger':
                 case 'error':
                     $alert = 'danger';
@@ -26,14 +26,16 @@ if (is_array($msgList) && !empty($msgList)) : ?>
                     $alert = 'warning';
                     break;
 
+            case 'message':
                 case 'success':
                     $alert = 'success';
                     break;
 
+            case 'notice':
+                $alert = 'primary';
+
                 default:
                 case 'info':
-                case 'notice':
-                case 'message':
                     $alert = 'info';
                     break;
             }
@@ -42,15 +44,15 @@ if (is_array($msgList) && !empty($msgList)) : ?>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
-        <?php if ($msgs) : ?>
-            <?php foreach ($msgs as $msg) : ?>
+        <?php if ($msgs) { ?>
+            <?php foreach ($msgs as $msg) { ?>
 
         <div><?php echo $msg; ?></div>
-            <?php endforeach; ?>
-        <?php endif; ?>
+            <?php } ?>
+        <?php } ?>
 
     </div>
-        <?php endforeach; ?>
+    <?php } ?>
 
 </div>
-<?php endif; ?>
+<?php } ?>

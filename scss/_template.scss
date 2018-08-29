@@ -202,7 +202,7 @@ iframe {
     color: $gray-500;
 }
 
-.page-footer {
+.tpl-footer {
     font-size: 85%;
 
     &::before {
@@ -216,6 +216,13 @@ iframe {
 }
 
 .main > * {
+    margin-top: $font-size-base;
+}
+
+/* Alert
+   ========================================================================== */
+
+.alert {
     margin-top: $font-size-base;
 }
 
@@ -714,7 +721,7 @@ div[itemprop="articleBody"] {
     }
 }
 
-.wrapper:not([class*="wrapper--"]) {
+.wrapper--none {
     .blog-featured {
         .items-intro {
             @include media-breakpoint-up(sm) {

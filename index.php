@@ -32,7 +32,7 @@ require_once 'includes/params.php';
     . ($browser ?: '')
     . ($pageclass ? ' ' . $pageclass : '');
 ?>">
-    <header class="page-header">
+    <header class="tpl-header">
         <nav class="navbar <?php echo $navbar; ?>">
             <?php if (!$nContainer) : ?>
             <div class="<?php echo $container; ?>">
@@ -56,7 +56,7 @@ require_once 'includes/params.php';
         </nav>
     </header>
 
-    <div class="page-body">
+    <div class="tpl-body">
         <?php if ($this->countModules('showcase')) : ?>
 
         <!-- Begin Showcase -->
@@ -77,13 +77,13 @@ require_once 'includes/params.php';
             <!-- End Breadcrumbs -->
 
             <main class="main">
+                <jdoc:include type="message" />
                 <!-- Begin Content -->
                 <?php if ($this->countModules('content-top')) : ?>
 
                 <jdoc:include type="modules" name="content-top" style="none" />
                 <?php endif; ?>
 
-                <jdoc:include type="message" />
                 <jdoc:include type="component" />
                 <?php if ($this->countModules('content-bottom')) : ?>
 
@@ -114,7 +114,7 @@ require_once 'includes/params.php';
         <!-- /container -->
     </div>
 
-    <footer class="page-footer">
+    <footer class="tpl-footer">
         <div class="<?php echo $container; ?>">
             <?php if ($this->countModules('copyright')) : ?>
 

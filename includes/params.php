@@ -97,7 +97,11 @@ $container = !$tpl_params->get('layout') ? 'container' : 'container-fluid';
 
 // Adjusting layout
 $wrapper = 'wrapper';
-if ($this->countModules('left') && $this->countModules('right'))
+if (!$this->countModules('left') && !$this->countModules('right'))
+{
+    $wrapper .= ' wrapper--none';
+}
+elseif ($this->countModules('left') && $this->countModules('right'))
 {
     $wrapper .= ' wrapper--lft-rgt';
 }
