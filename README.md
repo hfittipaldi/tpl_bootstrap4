@@ -19,8 +19,25 @@
 - [x] Add custom module style
 - [x] Overwrite pagination
 - [x] Overwrite message
-- [x] Add grid layout
-- [x] Styling frontpage
-- [x] Styling main menu
 - [x] Component page
 - [x] Error page
+- [x] Add grid layout
+- [x] Add main menu layout
+- [x] Add frontpage layout
+- [ ] Add components layout
+  - [ ] Cards
+  - [ ] Navbars
+  - [ ] Page navigation
+  - [ ] Vote system
+  - [ ] Dropdown-menu
+  - [ ] Badges
+  - [ ] Images
+  - [ ] Popover
+- [ ] Add form layout
+- [ ] Add form edit layout
+- [ ] Add contact page layout
+- [ ] Add users pages layout
+- [ ] Add category pages layout
+  - [ ] Create accordion category
+- [ ] Add archive article page layout
+- [ ] Add search result page layout
