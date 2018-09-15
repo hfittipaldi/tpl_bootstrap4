@@ -1168,6 +1168,72 @@ div[itemprop="articleBody"] {
     }
 }
 
+/* Contact form
+   ========================================================================== */
+
+.contact {
+    margin-top: $font-size-base;
+
+    dd, dt {
+        margin-top: 0;
+    }
+
+    dd {
+        margin-left: 2rem;
+    }
+
+    dt {
+        float: left;
+        width: 1rem;
+        text-align: left;
+    }
+
+    /* Plain form */
+    > h3 {
+        margin-top: $font-size-base;
+
+        &:nth-of-type(2) {
+            margin-top: $font-size-base * 2;
+        }
+    }
+
+    .contact-position {
+        dd {
+            margin-left: 6rem;
+        }
+
+        dt {
+            width: 5rem;
+        }
+    }
+
+    > .contact-form {
+        margin-top: $font-size-base / 2;
+    }
+    .field-spacer {
+        display: block;
+
+        .spacer {
+            font-size: 85%;
+        }
+    }
+
+    .thumbnail {
+        @include media-breakpoint-down(xs) {
+            float: none !important;
+    }
+
+        img {
+            max-width: 150px;
+    }
+}
+
+    .accordion .thumbnail {
+        @include media-breakpoint-down(sm) {
+            float: none !important;
+        }
+    }
+}
 
 /* ==========================================================================
    MODULES

@@ -35,7 +35,7 @@
   - [x] Popover
 - [x] Add form layout
 - [x] Add article form edit layout
-- [ ] Add contact page layout
+- [x] Add contact page layout
 - [ ] Add users pages layout
 - [ ] Add category pages layout
   - [ ] Create accordion category
