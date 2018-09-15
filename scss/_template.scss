@@ -15,6 +15,7 @@
 @import "bootstrap/mixins";
 
 // Custom scss
+@import "partials/custom";
 @import "partials/mixins";
 
 
@@ -26,7 +27,7 @@ h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6,
 address, blockquote, dl, dt, dd,
 fieldset, figure, footer, legend,
-p, ol, ul {
+p, ol, ul, .table {
     margin-bottom: 0;
 }
 
@@ -35,7 +36,7 @@ p, ol, ul {
     + .h1, + .h2, + .h3, + .h4, + .h5, + .h6,
     + address, + blockquote, + dl, + dt,
     + fieldset, + figure, + footer,
-    + form, + p, + ol, + ul {
+    + form, + p, + ol, + ul, .table {
         margin-top: 1em;
     }
 }
@@ -129,40 +130,6 @@ iframe {
     max-height: 100%;
 }
 
-[style*="float: left;"],
-[style*="float: right;"],
-.float-left,
-.float-right,
-.pull-left,
-.pull-right {
-    margin-top: 1.25em;
-    margin-bottom: 0.25em;
-
-    @include media-breakpoint-up(md) {
-        max-width: 55%;
-    }
-
-    &:first-child {
-        margin-top: 0;
-
-        @include media-breakpoint-up(md) {
-            margin-top: 0.25em;
-        }
-    }
-}
-
-[style*="float: left;"],
-.pull-left,
-.float-left {
-    margin-right: 1em;
-}
-
-[style*="float: right;"],
-.pull-right,
-.float-right {
-    margin-left: 1em;
-}
-
 @include media-breakpoint-down(sm) {
     .clear-sm {
         float: none !important;
@@ -191,6 +158,17 @@ iframe {
             width: 100%;
         }
     }
+}
+
+.caret {
+    content: "";
+    display: inline-block;
+    border-top: 4px solid #000;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    width: 0;
+    height: 0;
+    vertical-align: middle;
 }
 
 .container-fluid {
@@ -260,6 +238,237 @@ iframe {
     }
 }
 
+/* Forms
+   ========================================================================== */
+
+label {
+    margin-bottom: 0;
+}
+
+.control-group,
+.form-group {
+    margin-bottom: 0;
+
+    &:not(:first-child) {
+        margin-top: $form-group-margin-bottom;
+    }
+}
+
+.control-label {
+    line-height: 1.25;
+}
+
+.controls {
+    margin-top: $form-group-margin-bottom / 2;
+}
+
+.btn-toolbar {
+    -webkit-box-align: baseline;
+       -moz-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
+    margin-top: $form-group-margin-bottom;
+
+    > * {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+.form-horizontal .controls {
+    @include media-breakpoint-up(md) {
+        margin: 0;
+    }
+}
+
+// Editors
+
+.edit {
+    .wf-editor-container {
+        margin-top: $form-group-margin-bottom;
+
+        .wf-editor-tabs {
+            display: block;
+        }
+    }
+
+    .modal.btn {
+        display: inline-block;
+        position: relative;
+    }
+}
+
+.container-popup {
+    padding: 10px 10px 0;
+    overflow-x: hidden;
+    font-size: .85em;
+
+    .btn {
+        font-size: inherit;
+
+        &:not([class*="btn-"]) {
+            @include button-variant($gray-100, $gray-400);
+        }
+    }
+
+    .btn-mini {
+        @include button-variant($gray-200, $gray-200);
+    }
+
+    .form-horizontal {
+        > button {
+            margin-top: 1rem;
+        }
+    }
+
+    .js-stools {
+        .btn {
+            font-size: .95em;
+        }
+
+        .btn-wrapper {
+            display: -webkit-inline-box;
+            display: -moz-inline-box;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            width: auto;
+        }
+
+        .js-stools-container-list {
+            display: none !important;
+        }
+
+        .js-stools-btn-clear,
+        .js-stools-btn-filter:not(.btn-primary) {
+            @include button-variant($gray-200, $gray-300);
+        }
+    }
+
+    .label {
+        font-size: .85em;
+        @include button-variant($gray-600, $gray-600);
+    }
+
+    .table {
+        margin-top: 1rem;
+
+        th, td {
+            font-size: 12px;
+        }
+    }
+
+    .well {
+        min-height: 20px;
+        padding: 10px;
+        margin-bottom: 20px;
+        background-color: $gray-200;
+        background-clip: border-box;
+        border: $card-border-width solid $card-border-color;
+        @include border-radius($card-border-radius);
+
+        + iframe {
+            margin-bottom: 20px;
+        }
+
+        .row {
+            -webkit-box-pack: justify;
+            -moz-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+
+            .control-group {
+                -webkit-box-flex: 0;
+                -moz-box-flex: 0;
+                -ms-flex: 0 0 auto;
+                flex: 0 0 auto;
+                margin-top: auto;
+
+                .chzn-container {
+                    display: inline-flex;
+                    width: 220px !important;
+
+                    a {
+                        width: 100%;
+                        padding: .435rem .75rem;
+                    }
+                }
+            }
+
+            .pull-right {
+                margin-top: 1.7em;
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+        }
+        .row-fluid {
+            .control-group {
+                margin-top: 1rem;
+            }
+        }
+    }
+
+    [class^="icon-"] {
+        margin-right: .3em;
+    }
+}
+
+.contentpane {
+    .thumbnails-media {
+        padding-left: 1rem;
+
+        .thumbnail {
+            display: block;
+            line-height: 18px;
+            -webkit-transition: all .2s ease-in-out;
+                    transition: all .2s ease-in-out;
+
+            .img-preview {
+                display: block;
+                height: 100%;
+
+                .height-50 {
+                    position: absolute;
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-box-align: center;
+                    -ms-flex-align: center;
+                            align-items: center;
+                    height: 100%;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                .small {
+                    position: absolute;
+                    bottom: 0;
+                    z-index: 1;
+                    border: 1px solid rgba(0,0,0,0.1);
+                    border-width: 1px 1px 0 0;
+                    border-radius: 0 3px 0 0;
+                    padding: 0 5px;
+                    line-height: 20px;
+                    color: #555;
+                    background-color: #fff;
+                }
+            }
+        }
+
+        .height-50 {
+            height: 67px;
+
+            > span {
+                margin: 0;
+                width: auto;
+                line-height: 90px;
+                font-size: 38px;
+            }
+        }
+    }
+}
+
 /* Icons
    ========================================================================== */
 
@@ -267,11 +476,43 @@ iframe {
 [class*=" icon-"] {
     width: 1rem;
     height: 1rem;
-    vertical-align: middle;
+    vertical-align: text-bottom;
 }
 
 /* Images
    ========================================================================== */
+
+img, figure{
+    &[style*="float: left;"],
+    &[style*="float: right;"],
+    &.float-left,
+    &.float-right,
+    &.pull-left,
+    &.pull-right {
+        margin-top: 1.25em;
+        margin-bottom: 0.25em;
+
+        &:first-child {
+            margin-top: 0;
+
+            @include media-breakpoint-up(md) {
+                margin-top: 0.25em;
+            }
+        }
+    }
+
+    &[style*="float: left;"],
+    &.pull-left,
+    &.float-left {
+        margin-right: 1em;
+    }
+
+    &[style*="float: right;"],
+    &.pull-right,
+    &.float-right {
+        margin-left: 1em;
+    }
+}
 
 img {
     max-width: 100%;
@@ -288,6 +529,11 @@ figure {
 
     @include media-breakpoint-up(xl) {
         max-width: 80%;
+    }
+
+    &.pull-left,
+    &.pull-right {
+        max-width: 55%;
     }
 }
 
@@ -960,8 +1206,6 @@ div[itemprop="articleBody"] {
 
     .userdata {
         .control-group:first-child {
-            margin-top: 0;
-
             .controls {
                 margin-top: 0;
             }

@@ -15,18 +15,19 @@
 @import "bootstrap/mixins";
 
 // Custom scss
+@import "partials/custom";
 @import "partials/layout";
-//@import "partials/type";
+@import "partials/type";
 @import "partials/images";
 //@import "partials/code";
 @import "partials/grid";
 //@import "partials/tables";
 @import "partials/forms";
-//@import "partials/buttons";
+@import "partials/buttons";
 //@import "partials/transitions";
 @import "partials/dropdown";
 //@import "partials/button-group";
-//@import "partials/input-group";
+@import "partials/input-group";
 //@import "partials/custom-forms";
 @import "partials/nav";
 @import "partials/navbar";
@@ -38,7 +39,6 @@
 //@import "partials/alert";
 //@import "partials/progress";
 //@import "partials/media";
-@import "partials/lists";
 //@import "partials/list-group";
 //@import "partials/close";
 //@import "partials/modal";

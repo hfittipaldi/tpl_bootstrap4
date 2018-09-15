@@ -117,15 +117,10 @@
 }
 .chzn-container-single .chzn-search input[type="text"] {
   margin: 1px 0;
-  padding: 0.375rem 0.75rem;
-  width: 100%;
+  padding: 2px 0.75rem;
   height: auto;
   outline: 0;
-  border: 1px solid #ced4da;
   background: url('../../../../media/jui/css/chosen-sprite.png') no-repeat 100% -20px;
-  font-size: 1em;
-  line-height: 1.5;
-  border-radius: 0;
 }
 .chzn-container-single .chzn-drop {
   margin-top: -1px;
@@ -191,15 +186,23 @@
 /* @end */
 /* @group Multi Chosen */
 .chzn-container-multi .chzn-choices {
-  position: relative;
-  overflow: hidden;
-  margin: 0;
-  padding: 0 5px;
-  width: 100%;
-  height: auto;
-  border: 1px solid #ced4da;
+  display: block;
+  padding: 0.375rem 0.75rem;
+  font-size: 1em;
+  line-height: 1.5;
+  color: #495057;
   background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  overflow: hidden;
   cursor: text;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+@media screen and (prefers-reduced-motion: reduce) {
+  .chzn-container-multi .chzn-choices {
+    transition: none;
+  }
 }
 .chzn-container-multi .chzn-choices li {
   float: left;
@@ -213,7 +216,6 @@
 .chzn-container-multi .chzn-choices li.search-field input[type="text"] {
   margin: 1px 0;
   padding: 0;
-  height: 25px;
   outline: 0;
   border: 0 !important;
   background-color: transparent !important;
@@ -376,3 +378,21 @@
   background-position: -12px 2px;
 }
 /* @end */
+#editor-xtd-buttons {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -moz-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  float: none !important;
+  margin: 0;
+  max-width: 100%;
+}
+#editor-xtd-buttons a {
+  margin: 10px 5px 0;
+  border: 1px solid #007bff;
+  font-size: 0.9em;
+}

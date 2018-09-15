@@ -17,86 +17,98 @@ input[type="email"],
 input[type="url"],
 input[type="search"],
 input[type="tel"],
-input[type="color"],
-.inputbox {
-  display: block;
-  width: 100%;
-  padding: $input-padding-y $input-padding-x;
-  font-size: $font-size-base;
-  line-height: $input-line-height;
-  color: $input-color;
-  background-color: $input-bg;
-  background-clip: padding-box;
-  border: $input-border-width solid $input-border-color;
+input[type="color"] {
+    display: block;
+    width: 100%;
+    padding: $input-padding-y $input-padding-x;
+    font-size: 1em;
+    line-height: $input-line-height;
+    color: $input-color;
+    background-color: $input-bg;
+    background-clip: padding-box;
+    border: $input-border-width solid $input-border-color;
+    // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
+    @if $enable-rounded {
+        // Manually use the if/else instead of the mixin to account for iOS override
+        border-radius: $input-border-radius;
+    }
+    @else {
+        // Otherwise undo the iOS default
+        border-radius: 0;
+    }
+    @include box-shadow($input-box-shadow);
+    @include transition($input-transition);
 
-  // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
-  @if $enable-rounded {
-    // Manually use the if/else instead of the mixin to account for iOS override
-    border-radius: $input-border-radius;
-  } @else {
-    // Otherwise undo the iOS default
-    border-radius: 0;
-  }
+    // Unstyle the caret on `<select>`s in IE10+.
+    &::-ms-expand {
+        background-color: transparent;
+        border: 0;
+    }
+    // Customize the `:focus` state to imitate native WebKit styles.
+    @include form-control-focus();
 
-  @include box-shadow($input-box-shadow);
-  @include transition($input-transition);
+    // Placeholder
+    &::placeholder {
+        color: $input-placeholder-color;
+        // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
+        opacity: 1;
+    }
 
-  // Unstyle the caret on `<select>`s in IE10+.
-  &::-ms-expand {
-    background-color: transparent;
-    border: 0;
-  }
-
-  // Customize the `:focus` state to imitate native WebKit styles.
-  @include form-control-focus();
-
-  // Placeholder
-  &::placeholder {
-    color: $input-placeholder-color;
-    // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
-    opacity: 1;
-  }
-
-  // Disabled and read-only inputs
-  //
-  // HTML5 says that controls under a fieldset > legend:first-child won't be
-  // disabled if the fieldset is disabled. Due to implementation difficulty, we
-  // don't honor that edge case; we style them as disabled anyway.
-  &:disabled,
-  &[readonly] {
-    background-color: $input-disabled-bg;
-    // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
-    opacity: 1;
-  }
+    // Disabled and read-only inputs
+    //
+    // HTML5 says that controls under a fieldset > legend:first-child won't be
+    // disabled if the fieldset is disabled. Due to implementation difficulty, we
+    // don't honor that edge case; we style them as disabled anyway.
+    &:disabled,
+    &[readonly] {
+        background-color: $input-disabled-bg;
+        // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
+        opacity: 1;
+    }
 }
 
 .control-group {
-  margin-bottom: $form-group-margin-bottom;
+    margin-bottom: $form-group-margin-bottom;
 
-  &.checkbox,
-  &.radio {
-    display: -ms-grid;
-    display: grid;
-    grid-template-areas: "label controls";
-    -ms-grid-columns: 20px 1fr;
-    grid-template-columns: 20px 1fr;
-    align-items: center;
-  }
+    &.checkbox,
+    &.radio {
+        display: -ms-grid;
+        display: grid;
+        grid-template-areas: "controls label";
+        -ms-grid-columns: 20px 1fr;
+        grid-template-columns: 20px 1fr;
+        align-items: baseline;
 
-  &.checkbox .control-label,
-  &.radio .control-label {
-    grid-area: controls;
-    -ms-grid-row: 1;
-    -ms-grid-column: 1;
-    justify-self: start;
-  }
+        label {
+            grid-area: label;
+            -ms-grid-row: 1;
+            -ms-grid-column: 2;
+            -ms-grid-row-align: start;
+            justify-self: start;
+            margin-top: 0;
+        }
 
-  &.checkbox .inputbox,
-  &.radio .inputbox {
-    grid-area: label;
-    -ms-grid-row: 1;
-    -ms-grid-column: 2;
-  }
+        input {
+            grid-area: controls;
+            -ms-grid-row: 1;
+            -ms-grid-column: 1;
+            align-self: center;
+        }
+    }
+}
+
+label {
+    &.checkbox,
+    &.radio {
+        margin-right: 1rem;
+        margin-bottom: 0;
+        cursor: pointer;
+
+        input {
+            margin-right: 5px;
+            vertical-align: -1px;
+        }
+    }
 }
 
 .input-mini {
@@ -108,7 +120,7 @@ input[type="color"],
 }
 
 .input-medium {
-  margin-right: .5rem;
+    margin-right: .5rem;
 }
 
 .input-large {
@@ -127,41 +139,100 @@ input[type="color"],
    ========================================================================== */
 
 .form-inline .inputbox {
-  display: inline-block;
-  width: auto;
-  vertical-align: middle;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 /* Forms horizontal
    ========================================================================== */
 
-.form-horizontal .inputbox {
-  display: inline-block;
-  width: auto;
-  vertical-align: middle;
+.form-horizontal {
+    .inputbox {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    @include media-breakpoint-up(md) {
+        .control-group {
+            display: -ms-grid;
+            display: grid;
+            grid-template-areas: "label controls";
+            -ms-grid-columns: $label-size $grid-gutter-width 1fr;
+            grid-template-columns: $label-size 1fr;
+            grid-column-gap: $grid-gutter-width;
+        }
+
+        .control-label {
+            grid-area: label;
+            -ms-grid-row: 1;
+            -ms-grid-column: 1;
+        }
+
+        .controls {
+            grid-area: controls;
+            -ms-grid-row: 1;
+            -ms-grid-column: 3;
+        }
+    }
 }
 
-@include media-breakpoint-up(sm) {
-  .form-horizontal {
-    .control-group {
-      display: -ms-grid;
-      display: grid;
-      grid-template-areas: "label controls";
-      -ms-grid-columns: ($font-size-base * 10) $grid-gutter-width 1fr;
-      grid-template-columns: ($font-size-base * 10) 1fr;
-      grid-column-gap: $grid-gutter-width;
+/* Calendar field
+   ========================================================================== */
+
+.field-calendar {
+    position: relative;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-align: stretch;
+    -moz-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    width: 100%;
+
+    > button {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding: $input-padding-y $input-padding-x;
+        margin-bottom: 0; // Allow use of <label> elements by overriding our default margin-bottom
+        font-size: $font-size-base; // Match inputs
+        font-weight: $font-weight-normal;
+        line-height: $input-line-height;
+        color: $input-group-addon-color;
+        text-align: center;
+        white-space: nowrap;
+        background-color: $input-group-addon-bg;
+        border: $input-border-width solid $input-group-addon-border-color;
+        @include border-radius($input-border-radius);
+        @include border-left-radius(0);
     }
 
-    .control-label {
-      grid-area: label;
-      -ms-grid-row: 1;
-      -ms-grid-column: 1;
+    > input {
+        position: relative; // For focus state's z-index
+        flex: 1 1 auto;
+        // Add width 1% and flex-basis auto to ensure that button will not wrap out
+        // the column. Applies to IE Edge+ and Firefox. Chrome does not require this.
+        width: 1%;
+        margin-right: -$input-border-width;
+        margin-bottom: 0;
+        @include border-right-radius(0);
+
+        // Bring the "active" form control to the top of surrounding elements
+        &:focus {
+            z-index: 3;
+        }
     }
 
-    .controls {
-      grid-area: controls;
-      -ms-grid-row: 1;
-      -ms-grid-column: 2;
+    .calendar-container {
+        .table {
+            margin: 0;
+        }
     }
-  }
 }

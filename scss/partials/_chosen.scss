@@ -1,468 +1,501 @@
 /* @group Base */
 
 .chzn-container {
-  position: relative;
-  display: inline-block;
-  vertical-align: middle;
-  font-size: .9em;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: .9em;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
 
-  * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
 
-  a {
-    cursor: pointer;
-  }
+    a {
+        cursor: pointer;
+    }
 
-  .chzn-drop {
-    position: absolute;
-    top: 100%;
-    left: -9999px;
-    z-index: 1010;
-    width: 100%;
-    border: $input-border-width solid $input-border-color;
-    border-top: 0;
-    background-color: $input-bg;
-    @include box-shadow($input-box-shadow);
-  }
+    .chzn-drop {
+        position: absolute;
+        top: 100%;
+        left: -9999px;
+        z-index: 1010;
+        width: 100%;
+        border: $input-border-width solid $input-border-color;
+        border-top: 0;
+        background-color: $input-bg;
+        @include box-shadow($input-box-shadow);
+    }
 
-  &.chzn-with-drop .chzn-drop {
-    left: 0;
-  }
+    &.chzn-with-drop .chzn-drop {
+        left: 0;
+    }
 
-  .search-choice .group-name,
-  & .chzn-single .group-name {
-    margin-right: 4px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    font-weight: normal;
-    color: $input-color;
-  }
+    .search-choice .group-name,
+    & .chzn-single .group-name {
+        margin-right: 4px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-weight: normal;
+        color: $input-color;
+    }
 
-  .search-choice .group-name::after,
-  & .chzn-single .group-name::after {
-    content: ":";
-    padding-left: 2px;
-    vertical-align: top;
-  }
+    .search-choice .group-name::after,
+    & .chzn-single .group-name::after {
+        content: ":";
+        padding-left: 2px;
+        vertical-align: top;
+    }
 }
 
 /* @end */
+
 
 /* @group Single Chosen */
 
 .chzn-container-single {
-  .chzn-single {
-    position: relative;
-    display: block;
-    overflow: hidden;
-    padding: $input-padding-y $input-padding-x;
-    border: $input-border-width solid $input-border-color;
-    @include border-radius($input-border-radius);
-    background-color: $input-bg;
-    background-clip: padding-box;
-    @include box-shadow($input-box-shadow);
-    color: $input-color;
-    text-decoration: none;
-    white-space: nowrap;
-    line-height: $input-line-height;
-
-    abbr {
-      position: absolute;
-      top: 6px;
-      right: 26px;
-      display: block;
-      width: 12px;
-      height: 12px;
-      background: url('../../../../media/jui/css/chosen-sprite.png') -42px 1px no-repeat;
-      font-size: 1px;
-
-      &:hover {
-        background-position: -42px -10px;
-      }
-    }
-
-    div {
-      position: absolute;
-      top: 0;
-      right: 0;
-      display: block;
-      width: 18px;
-      height: 100%;
-
-      b {
+    .chzn-single {
+        position: relative;
         display: block;
-        width: 100%;
-        height: 100%;
-        background: url('../../../../media/jui/css/chosen-sprite.png') no-repeat 0px 7px;
-      }
+        overflow: hidden;
+        padding: $input-padding-y $input-padding-x;
+        border: $input-border-width solid $input-border-color;
+        @include border-radius($input-border-radius);
+        background-color: $input-bg;
+        background-clip: padding-box;
+        @include box-shadow($input-box-shadow);
+        color: $input-color;
+        text-decoration: none;
+        white-space: nowrap;
+        line-height: $input-line-height;
+
+        abbr {
+            position: absolute;
+            top: 6px;
+            right: 26px;
+            display: block;
+            width: 12px;
+            height: 12px;
+            background: url('../../../../media/jui/css/chosen-sprite.png') -42px 1px no-repeat;
+            font-size: 1px;
+
+            &:hover {
+                background-position: -42px -10px;
+            }
+        }
+
+        div {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: block;
+            width: 18px;
+            height: 100%;
+
+            b {
+                display: block;
+                width: 100%;
+                height: 100%;
+                background: url('../../../../media/jui/css/chosen-sprite.png') no-repeat 0px 7px;
+            }
+        }
+
+        span {
+            display: block;
+            overflow: hidden;
+            margin-right: 26px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
     }
 
-    span {
-      display: block;
-      overflow: hidden;
-      margin-right: 26px;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+    .chzn-default {
+        color: $input-color;
     }
-  }
 
-  .chzn-default {
-    color: $input-color;
-  }
-
-  .chzn-single-with-deselect span {
-    margin-right: 38px;
-  }
-
-  &.chzn-disabled .chzn-single abbr:hover {
-    background-position: -42px -10px;
-  }
-
-  .chzn-search {
-    position: relative;
-    z-index: 1010;
-    margin: 0;
-    padding: $input-padding-y $input-padding-x;
-    white-space: nowrap;
-
-    input[type="text"] {
-      margin: 1px 0;
-      padding: $input-padding-y $input-padding-x;
-      width: 100%;
-      height: auto;
-      outline: 0;
-      border: $input-border-width solid $input-border-color;
-      background: url('../../../../media/jui/css/chosen-sprite.png') no-repeat 100% -20px;
-      font-size: 1em;
-      line-height: $input-line-height;
-      border-radius: 0;
+    .chzn-single-with-deselect span {
+        margin-right: 38px;
     }
-  }
 
-  .chzn-drop {
-    margin-top: -1px;
-    @include border-left-radius($input-border-radius);
-    background-clip: padding-box;
-  }
+    &.chzn-disabled .chzn-single abbr:hover {
+        background-position: -42px -10px;
+    }
 
-  &.chzn-container-single-nosearch .chzn-search {
-    position: absolute;
-    left: -9999px;
-  }
+    .chzn-search {
+        position: relative;
+        z-index: 1010;
+        margin: 0;
+        padding: $input-padding-y $input-padding-x;
+        white-space: nowrap;
+
+        input[type="text"] {
+            margin: 1px 0;
+            padding: 2px $input-padding-x;
+            height: auto;
+            outline: 0;
+            background: url('../../../../media/jui/css/chosen-sprite.png') no-repeat 100% -20px;
+        }
+    }
+
+    .chzn-drop {
+        margin-top: -1px;
+        @include border-left-radius($input-border-radius);
+        background-clip: padding-box;
+    }
+
+    &.chzn-container-single-nosearch .chzn-search {
+        position: absolute;
+        left: -9999px;
+    }
 }
 
 /* @end */
+
 
 /* @group Results */
 
 .chzn-container {
-  .chzn-results {
-    color: $input-color;
-    position: relative;
-    overflow-x: hidden;
-    overflow-y: auto;
-    margin: 0 .25rem .25rem 0;
-    padding: 0 0 0 .25rem;
-    max-height: 240px;
-    -webkit-overflow-scrolling: touch;
-
-    li {
-      display: none;
-      margin: 0;
-      padding: 5px .5rem;
-      list-style: none;
-      line-height: 1;
-      word-wrap: break-word;
-      -webkit-touch-callout: none;
-
-      em {
-        font-style: normal;
-        text-decoration: underline;
-      }
-
-      &.active-result {
-        display: list-item;
-        cursor: pointer;
-      }
-
-      &.disabled-result {
-        display: list-item;
+    .chzn-results {
         color: $input-color;
-        cursor: default;
-      }
+        position: relative;
+        overflow-x: hidden;
+        overflow-y: auto;
+        margin: 0 .25rem .25rem 0;
+        padding: 0 0 0 .25rem;
+        max-height: 240px;
+        -webkit-overflow-scrolling: touch;
 
-      &.highlighted {
-        color: $white;
-        @include gradient-bg($primary);
-      }
+        li {
+            display: none;
+            margin: 0;
+            padding: 5px .5rem;
+            list-style: none;
+            line-height: 1;
+            word-wrap: break-word;
+            -webkit-touch-callout: none;
 
-      &.no-results {
-        color: $input-color;
-        display: list-item;
-        background-color: $input-disabled-bg;
-      }
+            em {
+                font-style: normal;
+                text-decoration: underline;
+            }
 
-      &.group-result {
-        display: list-item;
-        font-weight: bold;
-        cursor: default;
-      }
+            &.active-result {
+                display: list-item;
+                cursor: pointer;
+            }
 
-      &.group-option {
-        padding-left: 15px;
-      }
+            &.disabled-result {
+                display: list-item;
+                color: $input-color;
+                cursor: default;
+            }
+
+            &.highlighted {
+                color: $white;
+                @include gradient-bg($primary);
+            }
+
+            &.no-results {
+                color: $input-color;
+                display: list-item;
+                background-color: $input-disabled-bg;
+            }
+
+            &.group-result {
+                display: list-item;
+                font-weight: bold;
+                cursor: default;
+            }
+
+            &.group-option {
+                padding-left: 15px;
+            }
+        }
     }
-  }
 }
 
 /* @end */
+
 
 /* @group Multi Chosen */
 
 .chzn-container-multi {
-  .chzn-choices {
-    position: relative;
-    overflow: hidden;
-    margin: 0;
-    padding: 0 5px;
-    width: 100%;
-    height: auto;
-    border: $input-border-width solid $input-border-color;
-    background-color: $input-bg;
-    cursor: text;
+    .chzn-choices {
+        display: block;
+        padding: $input-padding-y $input-padding-x;
+        font-size: 1em;
+        line-height: $input-line-height;
+        color: $input-color;
+        background-color: $input-bg;
+        background-clip: padding-box;
+        border: $input-border-width solid $input-border-color;
+        overflow: hidden;
+        cursor: text;
+        // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
+        @if $enable-rounded {
+            // Manually use the if/else instead of the mixin to account for iOS override
+            border-radius: $input-border-radius;
+        }
+        @else {
+            // Otherwise undo the iOS default
+            border-radius: 0;
+        }
+        @include box-shadow($input-box-shadow);
+        @include transition($input-transition);
 
-    li {
-      float: left;
-      list-style: none;
+        li {
+            float: left;
+            list-style: none;
 
-      &.search-field {
+            &.search-field {
+                margin: 0;
+                padding: 0;
+                white-space: nowrap;
+
+                input[type="text"] {
+                    margin: 1px 0;
+                    padding: 0;
+                    outline: 0;
+                    border: 0 !important;
+                    background-color: transparent !important;
+                    box-shadow: none;
+                    color: $input-color;
+                    font-size: 100%;
+                    line-height: $input-line-height;
+                    border-radius: 0;
+                }
+            }
+
+            &.search-choice {
+                position: relative;
+                margin: 3px 5px 3px 0;
+                padding: $input-padding-y $input-padding-x;
+                border: $input-border-width solid $input-border-color;
+                max-width: 100%;
+                @include border-radius($input-border-radius);
+                @include gradient-bg(#eee);
+                background-size: 100% 19px;
+                background-repeat: repeat-x;
+                background-clip: padding-box;
+                @include box-shadow($input-box-shadow);
+                color: $input-color;
+                line-height: $input-line-height;
+                cursor: default;
+
+                span {
+                    word-wrap: break-word;
+                }
+
+                .search-choice-close {
+                    position: absolute;
+                    top: 4px;
+                    right: 3px;
+                    display: block;
+                    width: 12px;
+                    height: 12px;
+                    background: url('../../../../media/jui/css/chosen-sprite.png') -42px 1px no-repeat;
+                    font-size: 1px;
+
+                    &:hover {
+                        background-position: -42px -10px;
+                    }
+                }
+            }
+
+            &.search-choice-disabled {
+                padding-right: 5px;
+                border: $input-border-width solid $input-border-color;
+                @include gradient-bg(#e4e4e4);
+                color: $input-color;
+            }
+
+            &.search-choice-focus {
+                background-color: #d4d4d4;
+
+                .search-choice-close {
+                    background-position: -42px -10px;
+                }
+            }
+        }
+    }
+
+    .chzn-results {
         margin: 0;
         padding: 0;
-        white-space: nowrap;
-
-        input[type="text"] {
-          margin: 1px 0;
-          padding: 0;
-          height: 25px;
-          outline: 0;
-          border: 0 !important;
-          background-color: transparent !important;
-          box-shadow: none;
-          color: $input-color;
-          font-size: 100%;
-          line-height: $input-line-height;
-          border-radius: 0;
-        }
-      }
-
-      &.search-choice {
-        position: relative;
-        margin: 3px 5px 3px 0;
-        padding: $input-padding-y $input-padding-x;
-        border: $input-border-width solid $input-border-color;
-        max-width: 100%;
-        @include border-radius($input-border-radius);
-        @include gradient-bg(#eee);
-        background-size: 100% 19px;
-        background-repeat: repeat-x;
-        background-clip: padding-box;
-        @include box-shadow($input-box-shadow);
-        color: $input-color;
-        line-height: $input-line-height;
-        cursor: default;
-
-        span {
-          word-wrap: break-word;
-        }
-
-        .search-choice-close {
-          position: absolute;
-          top: 4px;
-          right: 3px;
-          display: block;
-          width: 12px;
-          height: 12px;
-          background: url('../../../../media/jui/css/chosen-sprite.png') -42px 1px no-repeat;
-          font-size: 1px;
-
-          &:hover {
-            background-position: -42px -10px;
-          }
-        }
-      }
-
-      &.search-choice-disabled {
-        padding-right: 5px;
-        border: $input-border-width solid $input-border-color;
-        @include gradient-bg(#e4e4e4);
-        color: $input-color;
-      }
-
-      &.search-choice-focus {
-        background-color: #d4d4d4;
-
-        .search-choice-close {
-          background-position: -42px -10px;
-        }
-      }
     }
-  }
 
-  .chzn-results {
-    margin: 0;
-    padding: 0;
-  }
-
-  .chzn-drop .result-selected {
-    display: list-item;
-    color: $input-color;
-    cursor: default;
-  }
+    .chzn-drop .result-selected {
+        display: list-item;
+        color: $input-color;
+        cursor: default;
+    }
 }
 
 /* @end */
+
 
 /* @group Active  */
 
 .chzn-container-active {
-  .chzn-single {
-    border: $input-border-width solid $input-border-color;
-    @include box-shadow($input-box-shadow);
-  }
-
-  &.chzn-with-drop .chzn-single {
-    border: $input-border-width solid $input-border-color;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-    background-color: $input-bg;
-
-    div {
-      border-left: none;
-      background-color: transparent;
-
-      b {
-        background-position: -18px 7px;
-      }
+    .chzn-single {
+        border: $input-border-width solid $input-border-color;
+        @include box-shadow($input-box-shadow);
     }
-  }
 
-  .chzn-choices {
-    border: $input-border-width solid $input-border-color;
-    @include box-shadow($input-box-shadow);
+    &.chzn-with-drop .chzn-single {
+        border: $input-border-width solid $input-border-color;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        background-color: $input-bg;
 
-    li.search-field input[type="text"] {
-      color: $input-color !important;
+        div {
+            border-left: none;
+            background-color: transparent;
+
+            b {
+                background-position: -18px 7px;
+            }
+        }
     }
-  }
+
+    .chzn-choices {
+        border: $input-border-width solid $input-border-color;
+        @include box-shadow($input-box-shadow);
+
+        li.search-field input[type="text"] {
+            color: $input-color !important;
+        }
+    }
 }
 
 /* @end */
+
 
 /* @group Disabled Support */
 
 .chzn-disabled {
-  opacity: 0.5 !important;
-  cursor: default;
-
-  .chzn-single {
+    opacity: 0.5 !important;
     cursor: default;
-  }
 
-  .chzn-choices .search-choice .search-choice-close {
-    cursor: default;
-  }
+    .chzn-single {
+        cursor: default;
+    }
+
+    .chzn-choices .search-choice .search-choice-close {
+        cursor: default;
+    }
 }
 
 /* @end */
+
 
 /* @group Right to Left */
 
 .chzn-rtl {
-  text-align: right;
+    text-align: right;
 
-  .chzn-single {
-    overflow: visible;
-    padding: 0 8px 0 0;
+    .chzn-single {
+        overflow: visible;
+        padding: 0 8px 0 0;
 
-    abbr {
-      right: auto;
-      left: 26px;
-    }
-    div {
-      right: auto;
-      left: 3px;
-    }
+        abbr {
+            right: auto;
+            left: 26px;
+        }
 
-    span {
-      margin-right: 0;
-      margin-left: 26px;
-      direction: rtl;
-    }
-  }
+        div {
+            right: auto;
+            left: 3px;
+        }
 
-  .chzn-single-with-deselect span {
-    margin-left: 38px;
-  }
-
-  .chzn-choices li {
-    float: right;
-
-    &.search-field input[type="text"] {
-      direction: rtl;
+        span {
+            margin-right: 0;
+            margin-left: 26px;
+            direction: rtl;
+        }
     }
 
-    &.search-choice {
-      margin: 3px 5px 3px 0;
-      padding: $input-padding-y $input-padding-x;
-
-      .search-choice-close {
-        right: auto;
-        left: 4px;
-      }
-    }
-  }
-
-  &.chzn-container-single-nosearch .chzn-search,
-  & .chzn-drop {
-    left: 9999px;
-  }
-
-  &.chzn-container-single .chzn-results {
-    margin: 0 0 4px 4px;
-    padding: 0 4px 0 0;
-  }
-
-  .chzn-results li.group-option {
-    padding-right: 15px;
-    padding-left: 0;
-  }
-
-  &.chzn-container-active.chzn-with-drop .chzn-single div {
-    border-right: none;
-  }
-
-  .chzn-search input[type="text"] {
-    padding: $input-padding-y $input-padding-x;
-    background: url('../../../../media/jui/css/chosen-sprite.png') no-repeat -30px -20px;
-    direction: rtl;
-  }
-
-  &.chzn-container-single {
-    .chzn-single div b {
-      background-position: 6px 2px;
+    .chzn-single-with-deselect span {
+        margin-left: 38px;
     }
 
-    &.chzn-with-drop .chzn-single div b {
-      background-position: -12px 2px;
+    .chzn-choices li {
+        float: right;
+
+        &.search-field input[type="text"] {
+            direction: rtl;
+        }
+
+        &.search-choice {
+            margin: 3px 5px 3px 0;
+            padding: $input-padding-y $input-padding-x;
+
+            .search-choice-close {
+                right: auto;
+                left: 4px;
+            }
+        }
     }
-  }
+
+    &.chzn-container-single-nosearch .chzn-search,
+    & .chzn-drop {
+        left: 9999px;
+    }
+
+    &.chzn-container-single .chzn-results {
+        margin: 0 0 4px 4px;
+        padding: 0 4px 0 0;
+    }
+
+    .chzn-results li.group-option {
+        padding-right: 15px;
+        padding-left: 0;
+    }
+
+    &.chzn-container-active.chzn-with-drop .chzn-single div {
+        border-right: none;
+    }
+
+    .chzn-search input[type="text"] {
+        padding: $input-padding-y $input-padding-x;
+        background: url('../../../../media/jui/css/chosen-sprite.png') no-repeat -30px -20px;
+        direction: rtl;
+    }
+
+    &.chzn-container-single {
+        .chzn-single div b {
+            background-position: 6px 2px;
+        }
+
+        &.chzn-with-drop .chzn-single div b {
+            background-position: -12px 2px;
+        }
+    }
 }
 
 /* @end */
+
+#editor-xtd-buttons {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -moz-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    float: none !important;
+    margin: 0;
+    max-width: 100%;
+
+    a {
+        margin: 10px 5px 0;
+        border: 1px solid $primary;
+        font-size: .9em;
+    }
+}

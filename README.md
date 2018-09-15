@@ -33,8 +33,8 @@
   - [x] Badges
   - [x] Images
   - [x] Popover
-- [ ] Add form layout
-- [ ] Add form edit layout
+- [x] Add form layout
+- [x] Add article form edit layout
 - [ ] Add contact page layout
 - [ ] Add users pages layout
 - [ ] Add category pages layout
