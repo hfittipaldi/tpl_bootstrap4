@@ -1026,6 +1026,39 @@ div[itemprop="articleBody"] {
     float: none !important;
   }
 }
+/* Users login
+ ========================================================================== */
+.login > form > fieldset > .control-group:nth-child(3) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+.login > form > fieldset > .control-group:nth-child(3) .control-label {
+  margin-left: 10px;
+}
+.login > form > fieldset > .control-group:nth-child(3) .controls {
+  margin-top: 0;
+}
+.login > form > fieldset > .control-group:nth-child(3) .controls input {
+  vertical-align: baseline;
+}
+@media (min-width: 768px) {
+  .login > form > fieldset > .control-group:nth-child(3) .controls {
+    margin-left: calc(10rem + 30px);
+  }
+}
+/* Users profile
+ ========================================================================== */
+.profile dt {
+  margin-top: 0;
+}
 /* ==========================================================================
  MODULES
  ========================================================================== */

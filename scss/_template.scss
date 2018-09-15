@@ -1235,6 +1235,47 @@ div[itemprop="articleBody"] {
     }
 }
 
+/* Users login
+   ========================================================================== */
+
+.login > form > fieldset > .control-group:nth-child(3) {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+    justify-content: flex-end;
+
+    .control-label {
+        margin-left: 10px;
+    }
+
+    .controls {
+        margin-top: 0;
+
+        input {
+            vertical-align: baseline;
+        }
+
+        @include media-breakpoint-up(md) {
+            margin-left: calc(10rem + 30px);
+        }
+    }
+}
+
+/* Users profile
+   ========================================================================== */
+
+.profile {
+    dt {
+        margin-top: 0;
+    }
+}
+
 /* ==========================================================================
    MODULES
    ========================================================================== */
