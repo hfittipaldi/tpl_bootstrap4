@@ -10,6 +10,7 @@
 defined('_JEXEC') or die;
 
 JHtml::addIncludePath(JPATH_ROOT . '/components/com_content/helpers');
+require_once JPATH_THEMES . '/' . $template . '/code/com_content/helpers/query.php';
 
 JHtml::_('behavior.caption');
 
@@ -23,22 +24,27 @@ if ($doc->countModules('left') || $doc->countModules('right'))
     $min_width  = 992;
 }
 
-// Check if the layout is column (0) or row (1)
-$layout = (int) $this->params->get('multi_column');
+// Check if the order is column (0) or row (1)
+$order = (int) $this->params->get('multi_column_order');
 
 // Define number of columns
 $n_columns = (int) $this->columns;
 
-$layout_class =  'across';
+if ($order === 0 && $n_columns > 1)
+{
+    $this->intro_items = ContentHelperQueryCustom::revertArticlesOrder($this->intro_items, $n_columns);
+}
+
+$layout =  'across';
 $style_declaration = "
         .blog-featured .items-intro.across .item {
             max-width: " . 100 / $n_columns . "%;
         }";
 
 
-if ($layout === 0)
+if ($order === 0)
 {
-    $layout_class = 'down';
+    $layout = 'down';
     $style_declaration = "
         .blog-featured .items-intro.down {
             -webkit-column-count: " . $n_columns . " !important;
@@ -89,14 +95,14 @@ if (!empty($this->intro_items)) :
     $total = $introcount = count($this->intro_items);
     $counter = 0;
 ?>
-    <section class="items items-intro <?php echo $layout_class; ?> row">
+    <section class="items items-intro <?php echo $layout; ?> row">
     <?php foreach ($this->intro_items as $key => &$item) :
         $key = $key - $leadingcount;
         $rowcount = ($key % $n_columns) + 1;
         $counter++;
 
         $first = '';
-        if ($layout === 0 && $key > 0)
+        if ($order === 0 && $key > 0)
         {
             if ($key === $total / 2)
             {
@@ -122,7 +128,7 @@ if (!empty($this->intro_items)) :
         <?php
         // Check if the layout is row
         // Check if it isn't the last article
-        if ($layout === 1 && $counter !== $introcount) :
+        if ($order === 1 && $counter !== $introcount) :
             // Split row into 2 articles
             if ($counter % 2 === 0) : ?>
 

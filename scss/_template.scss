@@ -479,10 +479,30 @@ label {
     vertical-align: text-bottom;
 }
 
+.icon-laquo,
+.icon-raquo {
+    width: auto;
+
+    &::before {
+        margin-top: -3px;
+        font-size: 1.1em;
+    }
+}
+
+.icon-laquo::before {
+    content: '\AB';
+    float: left;
+}
+
+.icon-raquo::before {
+    content: '\BB';
+    float: right;
+}
+
 /* Images
    ========================================================================== */
 
-img, figure{
+img, figure {
     &[style*="float: left;"],
     &[style*="float: right;"],
     &.float-left,
@@ -561,21 +581,21 @@ figure {
         width: 100%;
     }
 
-    @include media-breakpoint-up(md) {
-        .previous,
-        .next {
+    .previous,
+    .next {
+        @include media-breakpoint-up(md) {
             white-space: nowrap;
         }
     }
 
-        .previous {
-            float: left;
-        }
+    .previous {
+        float: left;
+    }
 
-        .next {
-            float: right;
-            text-align: right;
-        }
+    .next {
+        float: right;
+        text-align: right;
+    }
 }
 
 div.pagination {
@@ -986,9 +1006,10 @@ div[itemprop="articleBody"] {
 }
 
 
-/* Featured Articles
+/* Category Blog & Featured Articles
    ========================================================================== */
 
+.blog,
 .blog-featured {
     margin-top: $font-size-base;
 
@@ -1059,6 +1080,7 @@ div[itemprop="articleBody"] {
 }
 
 .wrapper--none {
+    .blog,
     .blog-featured {
         .items-intro {
             @include media-breakpoint-up(sm) {
@@ -1115,6 +1137,7 @@ div[itemprop="articleBody"] {
 .wrapper--lft,
 .wrapper--rgt,
 .wrapper--lft-rgt {
+    .blog,
     .blog-featured {
         .items-intro {
             @include media-breakpoint-up(md) {
@@ -1165,6 +1188,31 @@ div[itemprop="articleBody"] {
                 }
             }
         }
+    }
+}
+
+/* Category List & Accordion
+   ========================================================================== */
+
+.filters {
+    width: 100%;
+
+    &.btn-toolbar {
+        display: block;
+    }
+}
+
+.cat-children {
+    margin-top: 2rem;
+
+    h3 {
+        margin: 2px 0 10px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 5px;
+        font-size: 1.2em;
+    }
+    .btn-mini {
+        padding: .1em .3em;
     }
 }
 

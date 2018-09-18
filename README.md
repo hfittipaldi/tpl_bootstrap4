@@ -37,7 +37,7 @@
 - [x] Add article form edit layout
 - [x] Add contact page layout
 - [x] Add users pages layout
-- [ ] Add category pages layout
-  - [ ] Create accordion category
+- [x] Add category pages layout
+  - [x] Create accordion category
 - [ ] Add archive article page layout
 - [ ] Add search result page layout
