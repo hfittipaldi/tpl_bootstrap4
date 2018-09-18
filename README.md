@@ -39,5 +39,5 @@
 - [x] Add users pages layout
 - [x] Add category pages layout
   - [x] Create accordion category
-- [ ] Add archive article page layout
+- [x] Add archived articles page layout
 - [ ] Add search result page layout
