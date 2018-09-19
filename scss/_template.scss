@@ -1056,7 +1056,6 @@ div[itemprop="articleBody"] {
     }
 }
 
-
 /* Category Blog & Featured Articles
    ========================================================================== */
 
@@ -1334,6 +1333,77 @@ div[itemprop="articleBody"] {
     }
 }
 
+/* Search results
+   ========================================================================== */
+
+.search-results {
+    .result-title {
+        margin-top: 1.1rem;
+        border-top: $hr-border-width solid $hr-border-color;
+        padding-top: $font-size-base;
+    }
+
+    span.highlight {
+        padding: 1px 0;
+        font-weight: bolder;
+        background-color: #ffffb9;
+    }
+}
+
+#searchForm {
+    .btn-toolbar {
+        flex-wrap: nowrap;
+
+        .btn-group {
+            input {
+                @include border-right-radius(0);
+            }
+
+            button {
+                @include border-left-radius(0);
+            }
+        }
+    }
+
+    .searchintro {
+        margin-top: .5em;
+    }
+
+    .ordering-box,
+    .form-limit {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+                align-items: center;
+        margin-top: $font-size-base;
+        max-width: 300px;
+
+        label {
+            margin-right: .5em;
+        }
+    }
+
+    .only input {
+        margin-right: 0;
+    }
+
+    + .error {
+        position: relative;
+        margin-top: $alert-margin-bottom * 2;
+        margin-bottom: $alert-margin-bottom;
+        border: $alert-border-width solid transparent;
+        border-color: theme-color-level('danger', -9);
+        @include border-radius($alert-border-radius);
+        padding: $alert-padding-y $alert-padding-x;
+        color: theme-color-level('danger', 6);
+        @include gradient-bg(theme-color-level('danger', -10));
+    }
+}
+
 /* Users login
    ========================================================================== */
 
@@ -1374,6 +1444,7 @@ div[itemprop="articleBody"] {
         margin-top: 0;
     }
 }
+
 
 /* ==========================================================================
    MODULES

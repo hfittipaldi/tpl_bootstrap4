@@ -40,4 +40,4 @@
 - [x] Add category pages layout
   - [x] Create accordion category
 - [x] Add archived articles page layout
-- [ ] Add search result page layout
+- [x] Add search results page layout
