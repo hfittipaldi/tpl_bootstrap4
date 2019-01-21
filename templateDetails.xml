@@ -2,7 +2,7 @@
 <!DOCTYPE install PUBLIC "-//Joomla! 3.0//DTD template 1.0//EN" "https://www.joomla.org/xml/dtd/2.5/template-install.dtd">
 <extension version="3.0" type="template" client="site" method="upgrade">
     <name>Bootstrap 4</name>
-    <version>0.0.21</version>
+    <version>0.0.22</version>
     <creationDate>2018-03-26</creationDate>
     <author>Hugo Fittipaldi</author>
     <authorEmail>hugo.fittipaldi@gmail.com</authorEmail>
@@ -126,7 +126,7 @@
             <fieldset name="Font" label="Fonts">
                 <field name="spacer1"
                        type="spacer"
-                       label="&lt;b&gt;The fonts name must be exact as it is on Google Fonts, or else they will not be loaded.&lt;/b&gt;"
+                       label="&lt;b&gt;The fonts name must be exact as it is on Google Fonts, or else they will not be loaded.&lt;br /&gt;To aplly these fonts you need to enable sass compilation.&lt;/b&gt;"
                 />
 
                 <field name="bodyFont"
@@ -151,6 +151,7 @@
                        description="Extra font thickness besides Regular (400) and Bold (700). It will be loaded the italic style as well. Check if the chosen font has the ticknesses desired."
                        showon="bodyFont:1" >
                     <option value="100">Thin (100)</option>
+                    <option value="200">Extra Light (200)</option>
                     <option value="300">Light (300)</option>
                     <option value="500">Medium (500)</option>
                     <option value="600">Semi Bold (600)</option>
@@ -181,6 +182,8 @@
                        showon="titlesFont:1" >
                     <option value="100">Thin (100)</option>
                     <option value="100i">Thin Italic (100i)</option>
+                    <option value="200">Extra Light (200)</option>
+                    <option value="200i">Extra Light Italic (200i)</option>
                     <option value="300">Light (300)</option>
                     <option value="300i">Light Italic (300i)</option>
                     <option value="400">Regular (400)</option>

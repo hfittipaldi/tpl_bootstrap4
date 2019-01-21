@@ -9,3 +9,9 @@
     border-top: $hr-border-width solid $hr-border-color;
     width: 100%;
 }
+
+@mixin load-font($font: false) {
+    @if $font != false {
+        font-family: $font;
+    }
+}

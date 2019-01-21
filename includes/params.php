@@ -72,24 +72,26 @@ unset($doc->_styleSheets[$this->baseurl . '/media/jui/css/bootstrap-responsive.m
 require_once 'font_styles.php';
 
 // Body Font
+$bodyFont = 'false';
 if ($tpl_params->get('bodyFont'))
 {
-    JHtml::_('stylesheet', '//fonts.googleapis.com/css?family=' . $tpl_params->get('bodyFontName') . fontStyles('body'));
-    $doc->addStyleDeclaration("
-    body {
-        font-family: '" . str_replace('+', ' ', $tpl_params->get('bodyFontName')) . "';
-    }");
+    $gooleFonts = 'https://fonts.googleapis.com/css?family=' . $tpl_params->get('bodyFontName') . fontStyles('body');
+    if (file_get_contents($gooleFonts) !== false)
+    {
+        JHtml::_('stylesheet', $gooleFonts);
+        $bodyFont = str_replace('+', ' ', $tpl_params->get('bodyFontName'));
+    }
 }
 // Use of Google Font on titles
+$titlesFont = 'false';
 if ($tpl_params->get('titlesFont'))
 {
-    JHtml::_('stylesheet', '//fonts.googleapis.com/css?family=' . $tpl_params->get('titlesFontName') . fontStyles('titles'));
-    $doc->addStyleDeclaration("
-    h1, h2, h3, h4, h5, h6,
-    .h1, .h2, .h3, .h4, .h5, .h6,
-    .site-title {
-        font-family: '" . str_replace('+', ' ', $tpl_params->get('titlesFontName')) . "';
-    }");
+    $gooleFonts = 'https://fonts.googleapis.com/css?family=' . $tpl_params->get('titlesFontName') . fontStyles('titles');
+    if (file_get_contents($gooleFonts) !== false)
+    {
+        JHtml::_('stylesheet', $gooleFonts);
+        $titlesFont = str_replace('+', ' ', $tpl_params->get('titlesFontName'));
+    }
 }
 
 // Get template layout
