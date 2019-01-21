@@ -90,14 +90,14 @@ figure figcaption {
     margin-left: -15px;
   }
   .span1 {
-    -ms-flex-preferred-size: 8.33333%;
-    flex-basis: 8.33333%;
-    max-width: 8.33333%;
+    -ms-flex-preferred-size: 8.3333333333%;
+    flex-basis: 8.3333333333%;
+    max-width: 8.3333333333%;
   }
   .span2 {
-    -ms-flex-preferred-size: 16.66667%;
-    flex-basis: 16.66667%;
-    max-width: 16.66667%;
+    -ms-flex-preferred-size: 16.6666666667%;
+    flex-basis: 16.6666666667%;
+    max-width: 16.6666666667%;
   }
   .span3 {
     -ms-flex-preferred-size: 25%;
@@ -105,14 +105,14 @@ figure figcaption {
     max-width: 25%;
   }
   .span4 {
-    -ms-flex-preferred-size: 33.33333%;
-    flex-basis: 33.33333%;
-    max-width: 33.33333%;
+    -ms-flex-preferred-size: 33.3333333333%;
+    flex-basis: 33.3333333333%;
+    max-width: 33.3333333333%;
   }
   .span5 {
-    -ms-flex-preferred-size: 41.66667%;
-    flex-basis: 41.66667%;
-    max-width: 41.66667%;
+    -ms-flex-preferred-size: 41.6666666667%;
+    flex-basis: 41.6666666667%;
+    max-width: 41.6666666667%;
   }
   .span6 {
     -ms-flex-preferred-size: 50%;
@@ -120,14 +120,14 @@ figure figcaption {
     max-width: 50%;
   }
   .span7 {
-    -ms-flex-preferred-size: 58.33333%;
-    flex-basis: 58.33333%;
-    max-width: 58.33333%;
+    -ms-flex-preferred-size: 58.3333333333%;
+    flex-basis: 58.3333333333%;
+    max-width: 58.3333333333%;
   }
   .span8 {
-    -ms-flex-preferred-size: 66.66667%;
-    flex-basis: 66.66667%;
-    max-width: 66.66667%;
+    -ms-flex-preferred-size: 66.6666666667%;
+    flex-basis: 66.6666666667%;
+    max-width: 66.6666666667%;
   }
   .span9 {
     -ms-flex-preferred-size: 75%;
@@ -135,14 +135,14 @@ figure figcaption {
     max-width: 75%;
   }
   .span10 {
-    -ms-flex-preferred-size: 83.33333%;
-    flex-basis: 83.33333%;
-    max-width: 83.33333%;
+    -ms-flex-preferred-size: 83.3333333333%;
+    flex-basis: 83.3333333333%;
+    max-width: 83.3333333333%;
   }
   .span11 {
-    -ms-flex-preferred-size: 91.66667%;
-    flex-basis: 91.66667%;
-    max-width: 91.66667%;
+    -ms-flex-preferred-size: 91.6666666667%;
+    flex-basis: 91.6666666667%;
+    max-width: 91.6666666667%;
   }
   .span12 {
     -ms-flex-preferred-size: 100%;
@@ -189,7 +189,7 @@ select:focus, textarea:focus, input[type="text"]:focus, input[type="password"]:f
   background-color: #fff;
   border-color: #80bdff;
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 select::placeholder, textarea::placeholder, input[type="text"]::placeholder, input[type="password"]::placeholder, input[type="datetime"]::placeholder, input[type="datetime-local"]::placeholder, input[type="date"]::placeholder, input[type="month"]::placeholder, input[type="time"]::placeholder, input[type="week"]::placeholder, input[type="number"]::placeholder, input[type="email"]::placeholder, input[type="url"]::placeholder, input[type="search"]::placeholder, input[type="tel"]::placeholder, input[type="color"]::placeholder {
   color: #6c757d;
@@ -359,7 +359,7 @@ label.checkbox input, label.radio input {
 }
 .button:focus, .button.focus {
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 .button.disabled, .button:disabled {
   opacity: 0.65;
@@ -552,14 +552,14 @@ label.checkbox input, label.radio input {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, .125);
+  border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
 }
 .accordion-group .accordion-heading {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
-  background-color: rgba(0, 0, 0, .03);
-  border-bottom: 1px solid rgba(0, 0, 0, .125);
+  background-color: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 .accordion-group .accordion-heading:first-child {
   border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
