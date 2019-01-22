@@ -14,7 +14,7 @@ JHtml::addIncludePath(JPATH_ROOT . '/components/com_content/helpers');
 
 JHtml::_('behavior.caption');
 ?>
-<div class="category-list">
+<div class="category-list<?php echo $this->pageclass_sfx; ?>">
 
     <?php
     $this->subtemplatename = 'articles';
