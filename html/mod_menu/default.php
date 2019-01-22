@@ -22,17 +22,20 @@ if ($module->position == 'mainnav')
 }
 
 $script = 'bootstrap-4-navbar.js';
-if ($params->get('style') === 'Bootstrap4-menuHover')
+if (strpos($params->get('style'), 'menuHover'))
 {
     $class .= ' menu-hover';
     $script = 'bootstrap-4-hover-navbar.js';
 }
-JHtml::_('script', $script, array('relative' => true));
+
+// Menu has only 1 level;
+$levels = 0;
 
 // The menu class is deprecated. Use nav instead
 ?>
 <ul class="navbar-nav <?php echo $class . $class_sfx; ?>"<?php echo $id; ?>>
-<?php foreach ($list as $i => &$item)
+<?php
+foreach ($list as $i => &$item)
 {
     $class = 'item-' . $item->id;
 
@@ -72,6 +75,7 @@ JHtml::_('script', $script, array('relative' => true));
     if ($item->parent)
     {
         $class .= ' parent';
+        $levels++;
     }
 
     if ($item->level == 1)
@@ -86,7 +90,8 @@ JHtml::_('script', $script, array('relative' => true));
 
     echo '<li class="' . $class . '">';
 
-    switch ($item->type) :
+    switch ($item->type)
+    {
         case 'separator':
         case 'component':
         case 'heading':
@@ -97,7 +102,7 @@ JHtml::_('script', $script, array('relative' => true));
         default:
             require JModuleHelper::getLayoutPath('mod_menu', 'default_url');
             break;
-    endswitch;
+    }
 
     // The next item is deeper.
     if ($item->deeper)
@@ -115,5 +120,9 @@ JHtml::_('script', $script, array('relative' => true));
     {
         echo '</li>';
     }
+}
+
+if ($levels > 0) {
+    JHtml::_('script', $script, array('relative' => true));
 }
 ?></ul>

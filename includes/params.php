@@ -49,7 +49,7 @@ $itemid   = $jinput->getInt('Itemid', '');
 $sitename = htmlspecialchars($app->get('sitename', ''), ENT_QUOTES, 'UTF-8');
 
 // Get pageclass suffix
-$pageclass = !is_object($menu_active) ?: $menu_active->params->get('pageclass_sfx');
+$pageclass = $menu_active ? $menu_active->params->get('pageclass_sfx') : '';
 
 
 // Add Stylesheets

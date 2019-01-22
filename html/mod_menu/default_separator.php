@@ -14,7 +14,8 @@ if ($item->anchor_title)
 {
     $title = $item->anchor_title;
 }
-$title = ' title="' . $title . '"';
+
+$attribs = ' data-title="' . $title . '"';
 
 $anchor_css = '';
 if ($item->anchor_css)
@@ -22,6 +23,15 @@ if ($item->anchor_css)
     $anchor_css .= $item->anchor_css . ' ';
 }
 $anchor_css .= 'nav-link';
+
+if ($item->level_diff == -1)
+{
+    $anchor_css .= ' dropdown-toggle';
+    $attribs    .= ' data-toggle="dropdown"';
+    $attribs    .= ' role="button"';
+    $attribs    .= ' aria-haspopup="true"';
+    $attribs    .= ' aria-expanded="false"';
+}
 
 $linktype = $item->title;
 
@@ -44,4 +54,4 @@ if ($item->menu_image)
 }
 
 ?>
-<span class="separator <?php echo $anchor_css; ?>"<?php echo $title; ?>><?php echo $linktype; ?></span>
+<span class="separator <?php echo $anchor_css; ?>"<?php echo $attribs; ?>><?php echo $linktype; ?></span>

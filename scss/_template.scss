@@ -892,12 +892,11 @@ nav.navbar div[class^="container"] {
 
 .nav-main {
     .dropdown-menu {
-        li:active,
-        li.active {
+        .nav-item:active,
+        .nav-item.active {
             background-color: $primary;
 
-            > a {
-                color: #fff;
+            > .nav-link {
                 background-color: inherit;
             }
         }
@@ -923,15 +922,14 @@ nav.navbar div[class^="container"] {
     }
 
     @include media-breakpoint-up($breakpoint) {
-        > li {
+        > .nav-item {
             -webkit-box-flex: 1;
                 -ms-flex: 1 1 auto;
                     flex: 1 1 auto;
 
-            > a {
+            > .nav-link {
                 display: block;
                 text-align: center;
-                color: #fff;
                 background-color: rgba(238, 238, 238, 0);
                 -webkit-transition: background 300ms ease-in-out;
                         transition: background 300ms ease-in-out;
@@ -940,7 +938,7 @@ nav.navbar div[class^="container"] {
                     display: block;
                     content: attr(data-title);
                     padding: 0 $caret-width * 2.85 / 2;
-                    font-weight: bold;
+                    font-weight: 700;
                     height: 0;
                     color: transparent;
                     overflow: hidden;
@@ -948,25 +946,25 @@ nav.navbar div[class^="container"] {
                 }
             }
 
-            &:hover > a,
-            > a:active,
-            > a:hover,
-            > a:focus {
-                font-weight: bold;
+            &:hover > .nav-link,
+            > .nav-link:active,
+            > .nav-link:hover,
+            > .nav-link:focus {
+                font-weight: 700;
             }
 
             &.active {
-                > a,
-                > a:hover,
-                > a:focus {
-                    font-weight: bold;
+                > .nav-link,
+                > .nav-link:hover,
+                > .nav-link:focus {
+                    font-weight: bolder;
                 }
             }
         }
     }
 
     @include media-breakpoint-only($breakpoint) {
-        > li > a {
+        > .nav-item > .nav-link {
             font-size: 95%;
         }
     }
