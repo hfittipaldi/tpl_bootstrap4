@@ -45,26 +45,29 @@ $order = (int) $this->params->get('multi_column_order');
 // Define number of columns
 $n_columns = (int) $this->columns;
 
-if ($order === 0 && $n_columns > 1)
+if ($n_columns > 1)
 {
-    $this->intro_items = ContentHelperQueryCustom::revertArticlesOrder($this->intro_items, $n_columns);
+    $layout =  'across';
 }
-
-$layout =  'across';
 $style_declaration = "
-        .blog-featured .items-intro.across .item {
+        .blog .items-intro.across .item {
                 max-width: " . 100 / $n_columns . "%;
         }";
 
 
-if (!$order)
+if ($order === 0)
 {
-    $layout = 'down';
     $style_declaration = "
-        .blog-featured .items-intro.down {
+        .blog .items-intro.down {
             -webkit-column-count: " . $n_columns . " !important;
                     column-count: " . $n_columns . " !important;
         }";
+
+    if ($n_columns > 1)
+    {
+        $layout = 'down';
+        $this->intro_items = ContentHelperQueryCustom::revertArticlesOrder($this->intro_items, $n_columns);
+    }
 }
 
 if ($n_columns > 2)
@@ -141,17 +144,17 @@ if ($n_columns > 2)
 if (!empty($this->intro_items)) :
     // Count the number of featured items
     $total = $introcount = count($this->intro_items);
-    $counter = 0;
+    $i = $counter = 0;
 ?>
-    <section class="items items-intro <?php echo $layout; ?> row">
+    <section class="items items-intro <?php echo $layout; ?>">
     <?php foreach ($this->intro_items as $key => &$item) :
         $rowcount = ($key % $n_columns) + 1;
         $counter++;
 
         $first = '';
-        if ($order === 0 && $key > 0)
+        if ($order === 0 && $i > 0)
         {
-            if ($key === $total / 2)
+            if ($i === $total / 2)
             {
                 $first .= ' item-first--2-col';
             }
@@ -163,7 +166,7 @@ if (!empty($this->intro_items)) :
         }
         ?>
 
-        <div class="item item-<?php echo $key . $first . ($item->state == 0 ? ' system-unpublished' : null) . ' ' . $item_col; ?>">
+        <div class="item item-<?php echo $i++ . $first . ($item->state == 0 ? ' system-unpublished' : null) . ' ' . $item_col; ?>">
             <article itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
                 <?php
                     $this->item = &$item;
@@ -189,7 +192,18 @@ if (!empty($this->intro_items)) :
         <div class="clear-n-col"></div>
             <?php endif;
         endif;
-    endforeach; ?>
+    endforeach;
+
+    $empty = $n_columns - $total % $n_columns;
+    if ($empty < $n_columns) {
+        for ($i = 0; $i < $empty; ++$i) {
+    ?>
+
+        <div class="item item-empty <?php echo $item_col; ?>"></div>
+    <?php
+        }
+    }
+    ?>
 
     </section>
 <?php endif; ?>

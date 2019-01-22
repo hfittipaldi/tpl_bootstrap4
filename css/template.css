@@ -907,24 +907,30 @@ div[itemprop="articleBody"] {
 .blog .items-leading, .blog-featured .items-leading {
   margin-top: 1rem;
 }
-.blog .items-intro, .blog-featured .items-intro {
+.blog .items-leading + .items-intro, .blog-featured .items-leading + .items-intro {
   margin-top: 1.5rem;
 }
-.blog .items-intro::before, .blog-featured .items-intro::before {
+.blog .items-leading + .items-intro::before, .blog-featured .items-leading + .items-intro::before {
   content: '';
   display: block;
-  margin-right: 15px;
   margin-left: 15px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  width: 100%;
+  width: calc(100% - 30px);
+}
+.blog .items-intro, .blog-featured .items-intro {
+  margin-right: -15px;
+  margin-left: -15px;
 }
 .blog .items-intro.across, .blog-featured .items-intro.across {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-}
-.blog .items-intro.down, .blog-featured .items-intro.down {
-  display: block;
 }
 .blog .items-intro.down::before, .blog-featured .items-intro.down::before {
   column-span: all;
@@ -934,6 +940,9 @@ div[itemprop="articleBody"] {
   -webkit-column-break-inside: avoid;
   break-inside: avoid;
   page-break-inside: avoid;
+}
+.blog .items-intro.down .item-empty, .blog-featured .items-intro.down .item-empty {
+  height: 10em;
 }
 @media (min-width: 576px) {
   .wrapper--none .blog .items-intro.down, .wrapper--none .blog-featured .items-intro.down {
