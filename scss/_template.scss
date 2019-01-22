@@ -87,9 +87,9 @@ a {
     &[href$=".pdf"]::after {
         display: inline-block;
         margin-left: .3em;
-        font-weight: bold;
+        font-weight: bolder;
         font-style: normal;
-        font-size: x-small;
+        font-size: 72%;
         white-space: nowrap;
         vertical-align: text-bottom;
         cursor: text;
@@ -416,6 +416,7 @@ label {
                 padding-left: 15px;
             }
         }
+
         .row-fluid {
             .control-group {
                 margin-top: 1rem;
@@ -902,19 +903,19 @@ nav.navbar div[class^="container"] {
         }
 
         @include media-breakpoint-down($breakpoint) {
-                border-width: 0;
-                    margin-top: 0;
+            border-width: 0;
+            margin-top: 0;
             border-radius: 0;
-                    padding-top: 0;
-                    padding-bottom: 0;
+            padding-top: 0;
+            padding-bottom: 0;
 
             .dropdown-menu {
-                    li {
-                        padding-left: 1.5rem;
-                    }
+                li {
+                    padding-left: 1.5rem;
                 }
             }
         }
+    }
 
     > .nav-item > .dropdown-menu {
         margin-right: -1rem;
@@ -974,13 +975,13 @@ nav.navbar div[class^="container"] {
             margin-top: 0;
         }
 
-    @include media-breakpoint-down($breakpoint) {
-        .show > .dropdown-toggle::after {
-            transform: rotate(-90deg);
+        @include media-breakpoint-down($breakpoint) {
+            .show > .dropdown-toggle::after {
+                transform: rotate(-90deg);
+            }
         }
-    }
 
-    @include media-breakpoint-up(breakpoint-next($breakpoint, $grid-breakpoints)) {
+        @include media-breakpoint-up(breakpoint-next($breakpoint, $grid-breakpoints)) {
             li {
                 position: relative;
 
@@ -1287,6 +1288,7 @@ div[itemprop="articleBody"] {
         padding-bottom: 5px;
         font-size: 1.2em;
     }
+
     .btn-mini {
         padding: .1em .3em;
     }
@@ -1334,6 +1336,7 @@ div[itemprop="articleBody"] {
     > .contact-form {
         margin-top: $font-size-base / 2;
     }
+
     .field-spacer {
         display: block;
 
@@ -1345,12 +1348,12 @@ div[itemprop="articleBody"] {
     .thumbnail {
         @include media-breakpoint-down(xs) {
             float: none !important;
-    }
+        }
 
         img {
             max-width: 150px;
+        }
     }
-}
 
     .accordion .thumbnail {
         @include media-breakpoint-down(sm) {

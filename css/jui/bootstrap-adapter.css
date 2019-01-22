@@ -21,7 +21,6 @@
 .pull-center, .pull-none {
   margin-right: auto;
   margin-left: auto;
-  text-align: center;
 }
 .pull-left {
   float: left !important;
@@ -70,13 +69,14 @@ figure {
   display: table;
 }
 figure > img {
-  margin-bottom: 0.5rem;
   line-height: 1;
 }
 figure figcaption {
   display: table-caption;
   caption-side: bottom;
+  margin-top: 0.5rem;
   font-size: 90%;
+  line-height: 1.35;
   color: #6c757d;
 }
 /* ==========================================================================

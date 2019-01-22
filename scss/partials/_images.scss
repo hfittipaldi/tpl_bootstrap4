@@ -7,14 +7,15 @@ figure {
     display: table;
 
     > img {
-        margin-bottom: ($spacer / 2);
         line-height: 1;
     }
 
     figcaption {
         display: table-caption;
         caption-side: bottom;
+        margin-top: ($spacer / 2);
         font-size: $figure-caption-font-size;
+        line-height: 1.35;
         color: $figure-caption-color;
     }
 }
