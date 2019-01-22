@@ -181,6 +181,7 @@ function _get_num_items()
     $session = JFactory::getSession();
     $app     = JFactory::getApplication();
     $menu    = $app->getMenu()->getActive();
+    $name    = 'factor_' . $menu->id;
     $params  = JComponentHelper::getParams('com_content');
 
     if (!is_object($menu))
@@ -189,19 +190,20 @@ function _get_num_items()
     }
 
     $num_items = $menu->params->get('num_leading_articles') + $menu->params->get('num_intro_articles');
-    if (empty($menu->params->get('num_leading_articles')))
+    if ($menu->params->get('num_leading_articles') === null)
     {
         $num_items += $params->get('num_leading_articles');
     }
 
-    if (empty($menu->params->get('num_intro_articles')))
+    if ($menu->params->get('num_intro_articles') === null)
     {
         $num_items += $params->get('num_intro_articles');
     }
 
-    if ($app->input->get('option') === 'com_search' || $menu->params->get('display_num'))
-    {
-        $name  = 'factor_' . $menu->id;
+    if ($app->input->get('option') === 'com_search'
+        || $menu->params->get('display_num')
+        || $session->get($name)
+       ) {
         $limit = $app->input->get('limit');
         if (!empty($limit))
         {
@@ -298,25 +300,25 @@ function pagination_item_inactive(&$item)
     // Check for "Start" item
     if ($item->text === JText::_('JLIB_HTML_START'))
     {
-        return '<li class="page-item disabled"><a href="#" class="page-link" aria-label="First" tabindex="-1"><span aria-hidden="true">&laquo;</span></a></li>';
+        return '<li class="page-item disabled"><span class="page-link" aria-label="First" tabindex="-1"><span aria-hidden="true">&laquo;</span></span></li>';
     }
 
     // Check for "Prev" item
     if ($item->text === JText::_('JPREV'))
     {
-        return '<li class="page-item disabled"><a href="#" class="page-link" aria-label="Previous" type="prev" tabindex="-1"><span aria-hidden="true">&lsaquo;</span></a></li>';
+        return '<li class="page-item disabled"><span class="page-link" aria-label="Previous" type="prev" tabindex="-1"><span aria-hidden="true">&lsaquo;</span></span></li>';
     }
 
     // Check for "Next" item
     if ($item->text === JText::_('JNEXT'))
     {
-        return '<li class="page-item disabled"><a href="#" class="page-link" aria-label="Next" type="next" tabindex="-1"><span aria-hidden="true">&rsaquo;</span></a></li>';
+        return '<li class="page-item disabled"><span class="page-link" aria-label="Next" type="next" tabindex="-1"><span aria-hidden="true">&rsaquo;</span></span></li>';
     }
 
     // Check for "End" item
     if ($item->text === JText::_('JLIB_HTML_END'))
     {
-        return '<li class="page-item disabled"><a href="#" class="page-link" aria-label="Last" tabindex="-1"><span aria-hidden="true">&raquo;</span></a></li>';
+        return '<li class="page-item disabled"><span class="page-link" aria-label="Last" tabindex="-1"><span aria-hidden="true">&raquo;</span></span></li>';
     }
 
     // Check if the item is the active page
@@ -324,7 +326,7 @@ function pagination_item_inactive(&$item)
     {
         $aria = JText::sprintf('JLIB_HTML_PAGE_CURRENT', '#' . $item->text);
 
-        return '<li class="page-item active"><a class="page-link" aria-current="true" aria-label="' . $aria . '"><span class="sr-only">(current)</span>' . $item->text . '</a></li>';
+        return '<li class="page-item active"><span class="page-link" aria-current="true" aria-label="' . $aria . '"><span class="sr-only">(current)</span>' . $item->text . '</span></li>';
     }
 
     // Doesn't match any other condition, render a normal item

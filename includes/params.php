@@ -57,6 +57,8 @@ JHtmlBootstrap::loadCss(true, $this->direction);
 $doc->addStyleSheet('media/jui/css/icomoon.css');
 $doc->addStyleSheet('templates/' . $this->template . '/css/jui/bootstrap-adapter.css');
 $doc->addStyleSheetVersion('templates/' . $this->template . '/css/template.css');
+// Add Javascript
+JHtml::_('bootstrap.tooltip');
 
 // Check for a custom CSS file
 JHtml::_('stylesheet', 'custom.css', array('version' => 'auto', 'relative' => true));
