@@ -25,6 +25,10 @@ if ($Itemid = $menuItem->id)
     $app->input->set('Itemid', $Itemid);
 }
 
+// Loading site language
+$lang = JFactory::getLanguage();
+$lang->load('mod_search');
+
 // Getting sitename
 $sitename = htmlspecialchars($app->get('sitename', ''), ENT_QUOTES, 'UTF-8');
 
@@ -46,6 +50,33 @@ if ($params->get('siteDescription'))
 {
     $logo .= '<div class="site-description">' . htmlspecialchars($params->get('siteDescription'), ENT_COMPAT, 'UTF-8') . '</div>';
 }
+
+// Get navbar options
+$looks = 'navbar-light';
+if ($params->get('navbarLooks') == 1)
+{
+    $looks = 'navbar-dark bg-primary';
+}
+elseif ($params->get('navbarLooks') == 2)
+{
+    $looks = 'navbar-dark bg-dark';
+}
+
+$position = '';
+if ($params->get('navbarPosition') == 1)
+{
+    $position = ' fixed-top';
+}
+elseif ($params->get('navbarPosition') == 2)
+{
+    $position = ' fixed-bottom';
+}
+
+$behavior = ' navbar-expand-' . $params->get('navbarBehavior', 'md');
+
+$navbar = $looks . $position . $behavior;
+
+$nContainer = (bool) $params->get('navbarContainer');
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $this->language; ?>" >
@@ -60,54 +91,37 @@ if ($params->get('siteDescription'))
     <link rel="apple-touch-icon" type="image/png" href="<?php echo $this->baseurl . '/templates/' . $this->template; ?>/images/apple-touch-icon.png" />
     <link href="<?php echo $this->baseurl . '/media/jui/css/icomoon.css'; ?>" rel="stylesheet" />
     <link href="<?php echo $this->baseurl . '/templates/' . $this->template . '/css/jui/bootstrap.min.css'; ?>" rel="stylesheet" />
-    <link href="<?php echo $this->baseurl . '/templates/' . $this->template . '/css/jui/bootstrap-adapter.css'; ?>" rel="stylesheet" />
     <link href="<?php echo $this->baseurl . '/templates/' . $this->template . '/css/template.css'; ?>" rel="stylesheet" />
-    <?php $userCss = '/templates/' . $this->template . '/css/custom.css'; ?>
-    <?php if (is_file(JPATH_ROOT . $userCss)) : ?>
-
-    <link href="<?php echo $this->baseurl . $userCss; ?>" rel="stylesheet" />
-    <?php endif; ?>
-
     <link href="<?php echo $this->baseurl . '/templates/' . $this->template . '/css/error.css'; ?>" rel="stylesheet" />
     <?php if ($params->get('bodyFont')) : // Body Font ?>
 
-    <link href="https://fonts.googleapis.com/css?family=<?php echo $params->get('bodyFontName'); ?>:400,400i,500,500i" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=<?php echo $params->get('bodyFontName'); ?>:400,700" rel="stylesheet" />
     <style>
         body {
             font-family: <?php echo str_replace('+', ' ', $params->get('bodyFontName')); ?>;
         }
     </style>
     <?php endif; ?>
-    <?php if ($params->get('googleFont')) : // Use of Google Font on titles ?>
+    <?php if ($params->get('titlesFont')) : // Use of Google Font on titles ?>
 
-    <link href="https://fonts.googleapis.com/css?family=<?php echo $params->get('googleFontName'); ?>" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=<?php echo $params->get('titlesFontName'); ?>" rel="stylesheet" />
     <style>
         h1, h2, h3, h4, h5, h6,
         .h1, .h2, .h3, .h4, .h5, .h6,
         .site-title {
-            font-family: <?php echo str_replace('+', ' ', $params->get('googleFontName')); ?>;
+            font-family: <?php echo str_replace('+', ' ', $params->get('titlesFontName')); ?>;
         }
     </style>
     <?php endif; ?>
-    <?php if ($params->get('navigationFont')) : // Navigation Font ?>
-
-    <link href="https://fonts.googleapis.com/css?family=<?php echo $params->get('navigationFontname'); ?>" rel="stylesheet" />
-    <style>
-        nav {
-            font-family: <?php echo str_replace('+', ' ', $params->get('navigationFontname')); ?>;
-        }
-    </style>
-    <?php endif; ?>
-
-    <script src="<?php echo $this->baseurl . '/media/jui/js/jquery.min.js'; ?>"></script>
-    <script src="<?php echo $this->baseurl . '/media/jui/js/jquery-noconflict.js'; ?>"></script>
-    <script src="<?php echo $this->baseurl . '/media/jui/js/jquery-migrate.min.js'; ?>"></script>
-    <script src="<?php echo $this->baseurl . '/templates/' . $this->template . '/js/jui/bootstrap.min.js'; ?>"></script>
 </head>
 
 <body class="site-error">
-    <header class="page-header">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <header class="tpl-header">
+        <nav class="navbar <?php echo $navbar; ?>">
+            <?php if ($nContainer === false) : ?>
+            <div class="<?php echo $container; ?>">
+    <?php endif; ?>
+
             <a class="navbar-brand" href="<?php echo $this->baseurl; ?>">
                 <?php echo $logo; ?>
             </a>
@@ -116,19 +130,33 @@ if ($params->get('siteDescription'))
             </button>
 
             <div class="collapse navbar-collapse" id="navbarsMain">
-                <?php foreach (JModuleHelper::getModules('mainnav') as $module) : ?>
-                    <?php echo JModuleHelper::renderModule($module, ['style' => 'none']); ?>
-                <?php endforeach; ?>
+                <?php
+                foreach (JModuleHelper::getModules('mainnav') as $module)
+                {
+                    $m_params = json_decode($module->params);
+                    $script = 'bootstrap-4-navbar.js';
+                    if ($m_params->style === 'Bootstrap4-menuHover')
+                    {
+                        $script = 'bootstrap-4-hover-navbar.js';
+                    }
+                    echo JModuleHelper::renderModule($module);
+                }
 
-                <?php foreach (JModuleHelper::getModules('search') as $module) : ?>
-                    <?php echo JModuleHelper::renderModule($module, ['style' => 'none']); ?>
-                <?php endforeach; ?>
+                foreach (JModuleHelper::getModules('search') as $module)
+                {
+                    echo JModuleHelper::renderModule($module);
+                }
+                ?>
 
             </div>
+
+            <?php if ($nContainer === false) : ?>
+            </div>
+            <?php endif; ?>
         </nav>
     </header>
 
-    <div class="page-body">
+    <div class="tpl-body">
         <div class="<?php echo $container; ?>">
             <h1><?php echo $this->error->getCode(); ?></h1>
             <h2><?php echo JText::_('JERROR_LAYOUT_PAGE_NOT_FOUND'); ?></h2>
@@ -148,15 +176,22 @@ if ($params->get('siteDescription'))
                     </ul>
                         </div>
                         <div class="col-md-5">
-                            <?php if (JModuleHelper::getModule('mod_search')) : ?>
                             <p><strong><?php echo JText::_('JERROR_LAYOUT_SEARCH'); ?></strong></p>
                             <p><?php echo JText::_('JERROR_LAYOUT_SEARCH_PAGE'); ?></p>
-                                <?php $module = JModuleHelper::getModule('mod_search'); ?>
-                                <?php echo JModuleHelper::renderModule($module); ?>
-                            <?php endif; ?>
+                            <form action="<?php echo JRoute::_('index.php'); ?>" method="post" class="form-inline mt-1">
+                                <div class="input-group">
+                                    <input name="searchword" id="mod-search-searchword" maxlength="200" class="form-control search-query" type="search" size="20" aria-label="<?php echo JText::_('MOD_SEARCH_LABEL_TEXT'); ?>" aria-describedby="searchword" placeholder="<?php echo JText::_('MOD_SEARCH_LABEL_TEXT'); ?>">
+                                    <div class="input-group-append">
+                                        <button class="input-group-text" id="searchword"><span class="icon-search"></span></button>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="task" value="search">
+                                <input type="hidden" name="option" value="com_search">
+                                <input type="hidden" name="Itemid" value="<?php echo $Itemid; ?>">
+                            </form>
 
                             <p><?php echo JText::_('JERROR_LAYOUT_GO_TO_THE_HOME_PAGE'); ?></p>
-                            <p><a href="<?php echo $this->baseurl; ?>" class="btn btn-secondary"><span class="icon-home" aria-hidden="true"></span> <?php echo JText::_('JERROR_LAYOUT_HOME_PAGE'); ?></a></p>
+                            <p class="mt-1"><a href="<?php echo $this->baseurl; ?>" class="btn btn-secondary"><span class="icon-home" aria-hidden="true"></span> <?php echo JText::_('JERROR_LAYOUT_HOME_PAGE'); ?></a></p>
                         </div>
                     </div>
 
@@ -190,7 +225,7 @@ if ($params->get('siteDescription'))
         </div>
     </div>
 
-    <footer class="page-footer">
+    <footer class="tpl-footer">
         <div class="<?php echo $container; ?>">
             <!-- Begin Copyright -->
             <div class="copyright">
@@ -201,5 +236,9 @@ if ($params->get('siteDescription'))
     </footer>
 
     <?php echo $doc->getBuffer('modules', 'debug', ['style' => 'none']); ?>
+
+    <script src="<?php echo $this->baseurl . '/media/jui/js/jquery.min.js'; ?>"></script>
+    <script src="<?php echo $this->baseurl . '/templates/' . $this->template . '/js/jui/bootstrap.min.js'; ?>"></script>
+    <script src="<?php echo $this->baseurl . '/templates/' . $this->template . '/js/' . $script; ?>"></script>
 </body>
 </html>
